@@ -27,3 +27,41 @@
 
 <%= link_to 'Edit', edit_customerpo_path(@customerpo) %> |
 <%= link_to 'Back', :back %>
+
+
+<div class="row">
+  <div class="col-lg-6">
+    <h3>Sites</h3>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Number</th>
+          <th scope="col">Tower height</th>
+          <th scope="col">Status</th>
+          <th scope="col">Scope</th>
+          <th scope="col">Town</th>
+          <th scope="col">Customer Quote</th>
+          <th scope="col">Region</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @customerpo.sites.each do |site| %>
+          <tr>
+            <td scope="row"><%= site.id %></td>
+            <td><%= link_to site.name, site_path(site) %></td>
+            <td><%= site.number %></td>
+            <td><%= site.tower_height %></td>
+            <td><%= link_to site.status.state, status_path(site.status) %></td>
+            <td><%= link_to site.scope.scope_type, scope_url(site.scope) %></td>
+            <td><%= link_to site.town.name, town_url(site.town) %></td>
+            <td><%= link_to site.customerquote.name, customerquote_url(site.customerquote) %></td>
+            <td><%= link_to site.region.name, region_url(site.region) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

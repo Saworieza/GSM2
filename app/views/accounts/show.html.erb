@@ -1,20 +1,39 @@
 <p id="notice"><%= notice %></p>
-<p>
-  <strong>Name:</strong>
+<h1>
+  <strong>Account:</strong>
   <%= @account.name %>
-</p>
+</h1>
 
 <p>
   <strong>Description:</strong>
   <%= @account.description %>
 </p>
 
-<p> Cost Centers</p>
+<h2><%= @account.name %> SDs</h2>
 <%= link_to 'New SD(Cost Center)', new_costcenter_path %><br>
-<% @account.costcenters.each do |costcenter| %>
-		<%= link_to costcenter.number, costcenter_path(costcenter) %>
-		<%= costcenter.details %><br>
-	<% end %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Number</th>
+      <th scope="col">Details</th>
+      <th scope="col">Account</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @account.costcenters.each do |costcenter| %>
+      <tr>
+        <td scope="row"><%= costcenter.id %></td>
+        <td><%= link_to costcenter.number, costcenter_path(costcenter) %></td>
+        <td><%= costcenter.details %></td>
+        <td><%= costcenter.account.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 
 <%= link_to 'Edit', edit_account_path(@account) %> |

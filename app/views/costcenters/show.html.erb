@@ -14,15 +14,42 @@
   <%= link_to @costcenter.account.name, account_path(@costcenter.account_id) %>
   <%#= link_to @invoice.customerpo.number, customerpo_path(@invoice.customerpo_id) %>
 </p>
-
-<h4> Custmer Quotes</h4>
-<%= link_to 'New Customer Quote', new_customerquote_path %><br>
-<% @costcenter.customerquotes.each do |customerquote| %>
-	<%= link_to customerquote.name, customerquote_path(customerquote) %>
-	<%= link_to customerquote.date, customerquote_path(customerquote) %>
-	<%= customerquote.amount %>
-	<br>
-<% end %>
 <%= link_to 'Edit', edit_costcenter_path(@costcenter) %> |
 <%= link_to 'Back', :back %>
+
+<br>
+<%= link_to 'New Customer Quote', new_customerquote_path %><br>
+
+<h2>Customer Quotes</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <!-- <th>Date</th> -->
+      <th scope="col">Amount</th>
+      <th scope="col">Costcenter</th>
+      <th scope="col">CPO number</th>
+      <th scope="col">Scope</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @costcenter.customerquotes.each do |customerquote| %>
+      <tr>
+        <td><%= customerquote.id %></td>
+        <td><%= link_to customerquote.name, customerquote_path(customerquote) %></td>
+        <!-- <td><%#= customerquote.date %></td> -->
+        <td><%= customerquote.amount %></td>
+        <td><%= customerquote.costcenter.number %></td>
+        <% customerquote.customerpos.each do |cpo| %>
+          <td><%= link_to cpo.number %></td>
+          <td><%= cpo.scope.scope_type %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 

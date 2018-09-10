@@ -19,7 +19,7 @@
         <td scope="row"><%= costcenter.id %></td>
         <td><%= costcenter.number %></td>
         <td><%= costcenter.details %></td>
-        <td><%= costcenter.account %></td>
+        <td><%= costcenter.account.name %></td>
         <td><%= link_to 'Show', costcenter %></td>
         <td><%= link_to 'Edit', edit_costcenter_path(costcenter) %></td>
         <td><%= link_to 'Destroy', costcenter, method: :delete, data: { confirm: 'Are you sure?' } %></td>

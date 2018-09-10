@@ -2,3 +2,8 @@ TO DO
 create model from another model
 fix site sourcing in customerpo
 
+add field - number to quote
+
+TROUBLESOME REGION
+create the relationship between quote and site
+create the relationshop between quote and customerpo

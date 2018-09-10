@@ -9,6 +9,10 @@
   <strong>Date:</strong>
   <%= @invoice.date %>
 </p>
+<p>
+  <strong>Site:</strong>
+  <%= link_to @invoice.site.name, site_url(@invoice.site) %>
+</p>
 
 <p>
   <strong>Amount:</strong>
@@ -16,23 +20,18 @@
 </p>
 
 <p>
+  <strong>Customerpo:</strong>
+  <%= link_to @invoice.customerpo.number , customerpo_url(@invoice.customerpo) %>
+</p>
+
+<p>
   <strong>Status:</strong>
-  <%= @invoice.status %>
+  <%= link_to @invoice.status.state, status_url(@invoice.status) %>
 </p>
 
 <p>
   <strong>Scope:</strong>
-  <%= @invoice.scope %>
-</p>
-
-<p>
-  <strong>Customerpo:</strong>
-  <%= @invoice.customerpo %>
-</p>
-
-<p>
-  <strong>Site:</strong>
-  <%= @invoice.site %>
+  <%= link_to @invoice.scope.scope_type, scope_url(@invoice.scope) %>
 </p>
 
 <%= link_to 'Edit', edit_invoice_path(@invoice) %> |
