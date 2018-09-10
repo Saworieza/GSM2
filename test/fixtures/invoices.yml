@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: 
+  date: 2018-09-10
+  amount: 1
+  status: one
+  scope: one
+  customerpo: one
+  site: one
+
+two:
+  number: 
+  date: 2018-09-10
+  amount: 1
+  status: two
+  scope: two
+  customerpo: two
+  site: two

@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Customerpos</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Number</th>
+      <th scope="col">Date</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Customerquote</th>
+      <th scope="col">Scope</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customerpos.each do |customerpo| %>
+      <tr>
+        <td scope="row"><%= customerpo.id %></td>
+        <td><%= customerpo.number %></td>
+        <td><%= customerpo.date %></td>
+        <td><%= customerpo.amount %></td>
+        <td><%= customerpo.customerquote.name %></td>
+        <td><%= customerpo.scope.scope_type %></td>
+        <td><%= link_to 'Show', customerpo %></td>
+        <td><%= link_to 'Edit', edit_customerpo_path(customerpo) %></td>
+        <td><%= link_to 'Destroy', customerpo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Customerpo', new_customerpo_path %>
+

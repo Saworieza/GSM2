@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: 
+  date: 2018-09-02
+  amount: 1
+  customerquote: one
+  scope: one
+
+two:
+  number: 
+  date: 2018-09-02
+  amount: 1
+  customerquote: two
+  scope: two

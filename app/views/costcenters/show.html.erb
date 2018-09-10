@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Number:</strong>
+  <%= @costcenter.number %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @costcenter.details %>
+</p>
+
+<p>
+  <strong>Account:</strong>
+  <%= link_to @costcenter.account.name, account_path(@costcenter.account_id) %>
+  <%#= link_to @invoice.customerpo.number, customerpo_path(@invoice.customerpo_id) %>
+</p>
+
+<h4> Custmer Quotes</h4>
+<%= link_to 'New Customer Quote', new_customerquote_path %><br>
+<% @costcenter.customerquotes.each do |customerquote| %>
+	<%= link_to customerquote.name, customerquote_path(customerquote) %>
+	<%= link_to customerquote.date, customerquote_path(customerquote) %>
+	<%= customerquote.amount %>
+	<br>
+<% end %>
+<%= link_to 'Edit', edit_costcenter_path(@costcenter) %> |
+<%= link_to 'Back', :back %>
+

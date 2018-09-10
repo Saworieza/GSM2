@@ -1,0 +1,42 @@
+<%= form_for(customerquote) do |f| %>
+  <% if customerquote.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(customerquote.errors.count, "error") %> prohibited this customerquote from being saved:</h2>
+
+      <ul>
+      <% customerquote.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date %>
+    <%= f.date_select :date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :amount %>
+    <%= f.number_field :amount %>
+  </div>
+
+  <div class="field">
+    <%= f.label :costcenter_id %>
+    <%= f.collection_select :costcenter_id, Costcenter.all, :id, :number %>
+  </div>
+
+  <div class="field">
+    <%#= f.label :site %>
+    <%#= f.collection_select :site, Site.all, :id, :name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

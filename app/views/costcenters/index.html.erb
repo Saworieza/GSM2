@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Costcenters</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Number</th>
+      <th scope="col">Details</th>
+      <th scope="col">Account</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @costcenters.each do |costcenter| %>
+      <tr>
+        <td scope="row"><%= costcenter.id %></td>
+        <td><%= costcenter.number %></td>
+        <td><%= costcenter.details %></td>
+        <td><%= costcenter.account %></td>
+        <td><%= link_to 'Show', costcenter %></td>
+        <td><%= link_to 'Edit', edit_costcenter_path(costcenter) %></td>
+        <td><%= link_to 'Destroy', costcenter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Costcenter', new_costcenter_path %>
+
+

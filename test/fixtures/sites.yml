@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  number: 
+  tower_height: 1
+  status: one
+  scope: one
+  town: one
+  customerpo: one
+  customerquote: one
+  region: one
+
+two:
+  name: MyString
+  number: 
+  tower_height: 1
+  status: two
+  scope: two
+  town: two
+  customerpo: two
+  customerquote: two
+  region: two

@@ -1,0 +1,33 @@
+<%= form_with(model: costcenter, local: true) do |f| %>
+  <% if costcenter.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(costcenter.errors.count, "error") %> prohibited this costcenter from being saved:</h2>
+
+      <ul>
+      <% costcenter.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :number %>
+    <%= f.text_field :number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :details %>
+    <%= f.text_area :details %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Account %>
+    <%#= f.collection_select :account_id, Account.where(:user_id => current_user.id), :id, :name %>
+    <%= f.collection_select :account_id, Account.all, :id, :name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

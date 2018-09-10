@@ -1,0 +1,65 @@
+<%= form_with(model: customerpo, local: true) do |form| %>
+  <% if customerpo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(customerpo.errors.count, "error") %> prohibited this customerpo from being saved:</h2>
+
+      <ul>
+      <% customerpo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :number %>
+    <%= form.text_field :number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.number_field :amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :customerquote_id %>
+    <%= form.collection_select :customerquote_id, Customerquote.all, :id, :name %>
+  </div> 
+
+  <!-- <div class="field">
+    <%#= form.label :customerquote_name %>
+    <%#= form.text_field :customerquote_name %>
+  </div> -->
+
+  <!-- <div class="field">
+    Autocomplete
+    <%#= form.label :customerquote_name %><br />
+    <%# form.text_field :customerquote_name, data: {autocomplete_source: Customerquote.order(:name).map(&:name)} %>
+    <%#= form.text_field :customerquote_name, data: {autocomplete_source: customerquotes_path} %>
+  </div> -->
+
+  <div class="field">
+    <%= form.label :scope_id %>
+    <%= form.collection_select :scope_id, Scope.all, :id, :scope_type %>
+  </div> 
+
+
+
+<!-- <p>
+  <label for="po_scope_id">Scope:</label><br />
+  <%#= form.collection_select :scope_id, Scope.all, :id, :scope_type, :prompt => "Select a Scope" %>
+  or create one:
+  <%#= form.text_field :new_scope %>
+</p> -->
+
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

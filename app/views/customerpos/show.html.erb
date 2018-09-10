@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @customerpo.number %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @customerpo.date %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @customerpo.amount %>
+</p>
+
+<p>
+  <strong>Customerquote:</strong>
+  <%= @customerpo.customerquote.name %>
+</p>
+
+<p>
+  <strong>Scope:</strong>
+  <%= @customerpo.scope.scope_type %>
+</p>
+
+<%= link_to 'Edit', edit_customerpo_path(@customerpo) %> |
+<%= link_to 'Back', :back %>

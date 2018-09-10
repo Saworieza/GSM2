@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Towns</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Classification</th>
+      <th scope="col">Region</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @towns.each do |town| %>
+      <tr>
+        <td scope="row"><%= town.id %></td>
+        <td><%= town.name %></td>
+        <td><%= town.classification %></td>
+        <td><%= town.region.name %></td>
+        <td><%= link_to 'Show', town %></td>
+        <td><%= link_to 'Edit', edit_town_path(town) %></td>
+        <td><%= link_to 'Destroy', town, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Town', new_town_path %>
+

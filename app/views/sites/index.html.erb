@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sites</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Number</th>
+      <th scope="col">Tower height</th>
+      <th scope="col">Status</th>
+      <th scope="col">Scope</th>
+      <th scope="col">Town</th>
+      <th scope="col">Customerquote</th>
+      <th scope="col">Customerpo</th>
+      <th scope="col">Region</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sites.each do |site| %>
+      <tr>
+        <td scope="row"><%= site.id %></td>
+        <td><%= site.name %></td>
+        <td><%= site.number %></td>
+        <td><%= site.tower_height %></td>
+        <td><%= site.status.state %></td>
+        <td><%= site.scope.scope_type %></td>
+        <td><%= site.town.name %></td>
+        <td><%= site.customerquote.name %></td>
+        <td><%= site.customerpo.number %></td>
+        <td><%= site.region.name %></td>
+        <td><%= link_to 'Show', site %></td>
+        <td><%= link_to 'Edit', edit_site_path(site) %></td>
+        <td><%= link_to 'Destroy', site, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Site', new_site_path %>
