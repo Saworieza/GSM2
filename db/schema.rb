@@ -10,13 +10,56 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_09_220051) do
+ActiveRecord::Schema.define(version: 2018_09_12_135903) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "contractorinvoices", force: :cascade do |t|
+    t.bigint "number"
+    t.date "date"
+    t.integer "amount"
+    t.integer "milestone_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["milestone_id"], name: "index_contractorinvoices_on_milestone_id"
+  end
+
+  create_table "contractorpos", force: :cascade do |t|
+    t.bigint "number"
+    t.date "date"
+    t.integer "amount"
+    t.text "description"
+    t.integer "contractorquote_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contractorquote_id"], name: "index_contractorpos_on_contractorquote_id"
+  end
+
+  create_table "contractorquotes", force: :cascade do |t|
+    t.bigint "number"
+    t.date "date"
+    t.integer "amount"
+    t.text "description"
+    t.integer "site_id"
+    t.integer "customerpo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customerpo_id"], name: "index_contractorquotes_on_customerpo_id"
+    t.index ["site_id"], name: "index_contractorquotes_on_site_id"
+  end
+
+  create_table "contractors", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "status_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["status_id"], name: "index_contractors_on_status_id"
   end
 
   create_table "costcenters", force: :cascade do |t|
@@ -70,6 +113,16 @@ ActiveRecord::Schema.define(version: 2018_09_09_220051) do
     t.string "milestone_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "paymentvouchers", force: :cascade do |t|
+    t.bigint "number"
+    t.integer "site_id"
+    t.integer "contractorinvoice_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contractorinvoice_id"], name: "index_paymentvouchers_on_contractorinvoice_id"
+    t.index ["site_id"], name: "index_paymentvouchers_on_site_id"
   end
 
   create_table "regions", force: :cascade do |t|

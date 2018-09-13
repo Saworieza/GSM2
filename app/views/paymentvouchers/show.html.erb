@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @paymentvoucher.number %>
+</p>
+
+<p>
+  <strong>Site:</strong>
+  <%= @paymentvoucher.site %>
+</p>
+
+<p>
+  <strong>Contractorinvoice:</strong>
+  <%= @paymentvoucher.contractorinvoice %>
+</p>
+
+<%= link_to 'Edit', edit_paymentvoucher_path(@paymentvoucher) %> |
+<%= link_to 'Back', paymentvouchers_path %>

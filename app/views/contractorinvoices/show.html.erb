@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @contractorinvoice.number %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @contractorinvoice.date %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @contractorinvoice.amount %>
+</p>
+
+<p>
+  <strong>Milestone:</strong>
+  <%= @contractorinvoice.milestone.milestone_type %>
+</p>
+
+<%= link_to 'Edit', edit_contractorinvoice_path(@contractorinvoice) %> |
+<%= link_to 'Back', contractorinvoices_path %>

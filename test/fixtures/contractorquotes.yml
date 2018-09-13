@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: 
+  date: 2018-09-12
+  amount: 1
+  description: MyText
+  site: one
+  customerpo: one
+
+two:
+  number: 
+  date: 2018-09-12
+  amount: 1
+  description: MyText
+  site: two
+  customerpo: two

@@ -4,6 +4,11 @@ fix site sourcing in customerpo
 
 add field - number to quote
 
+customerpo can have only one quote and one quote only has one customerpo
+
 TROUBLESOME REGION
 create the relationship between quote and site
 create the relationshop between quote and customerpo
+
+
+if milestonetype = x the amount = po/percentage

@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :paymentvouchers
+  resources :contractorinvoices
+  resources :contractorpos
+  resources :contractorquotes
+  resources :contractors
   resources :invoices
   resources :sites
   resources :customerpos

@@ -7,7 +7,7 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Name</th>
-      <!-- <th>Date</th> -->
+      <th scope="col">Date</th>
       <th scope="col">Amount</th>
       <th scope="col">Costcenter</th>
       <th scope="col">CPO number</th>
@@ -19,11 +19,12 @@
   <tbody>
     <% @customerquotes.each do |customerquote| %>
       <tr>
-        <td><%= link_to customerquote.id, customerquote %></td>
-        <td><%= customerquote.name %></td>
-        <!-- <td><%#= customerquote.date %></td> -->
+        <td><%= customerquote.id %></td>
+        <td><%= link_to customerquote.name, customerquote %></td>
+        <td><%= customerquote.date %></td>
         <td><%= customerquote.amount %></td>
         <td><%= customerquote.costcenter.number %></td>
+        <!-- <td><%#= customerquote.customerpo.number %></td> -->
         <% customerquote.customerpos.each do |cpo| %>
           <td><%= link_to cpo.number %></td><%# , customerpo_path(customerpo)%>
           <td><%= link_to cpo.scope.scope_type, scope_path(cpo.scope) %></td>

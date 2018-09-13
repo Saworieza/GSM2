@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @contractorquote.number %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @contractorquote.date %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @contractorquote.amount %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @contractorquote.description %>
+</p>
+
+<p>
+  <strong>Site:</strong>
+  <%= link_to @contractorquote.site.name, site_path(@contractorquote.site) %>
+</p>
+
+<p>
+  <strong>Customerpo:</strong>
+  <%= link_to @contractorquote.customerpo.number, customerpo_path(@contractorquote.customerpo) %>
+</p>
+
+<%= link_to 'Edit', edit_contractorquote_path(@contractorquote) %> |
+<%= link_to 'Back', :back %>

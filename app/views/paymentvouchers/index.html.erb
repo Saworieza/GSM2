@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Paymentvouchers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Site</th>
+      <th>Contractorinvoice</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @paymentvouchers.each do |paymentvoucher| %>
+      <tr>
+        <td><%= paymentvoucher.number %></td>
+        <td><%= paymentvoucher.site %></td>
+        <td><%= paymentvoucher.contractorinvoice %></td>
+        <td><%= link_to 'Show', paymentvoucher %></td>
+        <td><%= link_to 'Edit', edit_paymentvoucher_path(paymentvoucher) %></td>
+        <td><%= link_to 'Destroy', paymentvoucher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Paymentvoucher', new_paymentvoucher_path %>

@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Contractor POs</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Number</th>
+      <th scope="col">Date</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Description</th>
+      <th scope="col">Contractor Quote</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contractorpos.each do |contractorpo| %>
+      <tr>
+        <td scope="row"><%= contractorpo.id %></td>
+        <td><%= link_to contractorpo.number, contractorpo %></td>
+        <td><%= contractorpo.date %></td>
+        <td><%= contractorpo.amount %></td>
+        <td><%= contractorpo.description %></td>
+        <td><%= link_to contractorpo.contractorquote.number, contractorquote_path(contractorpo.contractorquote) %></td>
+        <td><%= link_to 'Edit', edit_contractorpo_path(contractorpo) %></td>
+        <td><%= link_to 'Destroy', contractorpo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Contractorpo', new_contractorpo_path %>

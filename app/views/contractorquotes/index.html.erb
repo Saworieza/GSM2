@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Contractor Quotes</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Number</th>
+      <th scope="col">Date</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Description</th>
+      <th scope="col">Site</th>
+      <th scope="col">Customerpo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contractorquotes.each do |contractorquote| %>
+      <tr>
+        <td scope="row"><%= contractorquote.id %></td>
+        <td><%= link_to contractorquote.number, contractorquote %></td>
+        <td><%= contractorquote.date %></td>
+        <td><%= contractorquote.amount %></td>
+        <td><%= contractorquote.description %></td>
+        <td><%= link_to contractorquote.site.name, site_path(contractorquote.site) %></td>
+        <td><%= link_to contractorquote.customerpo.number, customerpo_path(contractorquote.customerpo) %></td>
+        <td><%= link_to 'Edit', edit_contractorquote_path(contractorquote) %></td>
+        <td><%= link_to 'Destroy', contractorquote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Contractorquote', new_contractorquote_path %>

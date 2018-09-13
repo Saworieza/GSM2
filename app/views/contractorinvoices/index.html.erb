@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Contractor Invoices</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Number</th>
+      <th scope="col">Date</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Milestone</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contractorinvoices.each do |contractorinvoice| %>
+      <tr>
+        <td scope="row"><%= contractorinvoice.id %></td>
+        <td><%= link_to contractorinvoice.number, contractorinvoice %></td>
+        <td><%= contractorinvoice.date %></td>
+        <td><%= contractorinvoice.amount %></td>
+        <td><%= contractorinvoice.milestone.milestone_type %></td>
+        <td><%= link_to 'Edit', edit_contractorinvoice_path(contractorinvoice) %></td>
+        <td><%= link_to 'Destroy', contractorinvoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Contractorinvoice', new_contractorinvoice_path %>
