@@ -17,19 +17,19 @@
 
 <p>
   <strong>Customerquote:</strong>
-  <%= @customerpo.customerquote.name %>
+  <%= link_to @customerpo.customerquote.name, customerquote_path(@customerpo.customerquote) %>
 </p>
 
 <p>
   <strong>Scope:</strong>
-  <%= @customerpo.scope.scope_type %>
+  <%= link_to @customerpo.scope.scope_type, scope_path(@customerpo.scope) %>
 </p>
 
 <%= link_to 'Edit', edit_customerpo_path(@customerpo) %> |
 <%= link_to 'Back', :back %>
 
 
-<div class="row">
+<!-- <div class="row">
   <div class="col-lg-6">
     <h3>Sites</h3>
     <table class="table table-striped">
@@ -48,20 +48,20 @@
       </thead>
 
       <tbody>
-        <% @customerpo.sites.each do |site| %>
+        <%# @customerpo.sites.each do |site| %>
           <tr>
-            <td scope="row"><%= site.id %></td>
-            <td><%= link_to site.name, site_path(site) %></td>
-            <td><%= site.number %></td>
-            <td><%= site.tower_height %></td>
-            <td><%= link_to site.status.state, status_path(site.status) %></td>
-            <td><%= link_to site.scope.scope_type, scope_url(site.scope) %></td>
-            <td><%= link_to site.town.name, town_url(site.town) %></td>
-            <td><%= link_to site.customerquote.name, customerquote_url(site.customerquote) %></td>
-            <td><%= link_to site.region.name, region_url(site.region) %></td>
+            <td scope="row"><%#= site.id %></td>
+            <td><%#= link_to site.name, site_path(site) %></td>
+            <td><%#= site.number %></td>
+            <td><%#= site.tower_height %></td>
+            <td><%#= link_to site.status.state, status_path(site.status) %></td>
+            <td><%#= link_to site.scope.scope_type, scope_url(site.scope) %></td>
+            <td><%#= link_to site.town.name, town_url(site.town) %></td>
+            <td><%#= link_to site.customerquote.name, customerquote_url(site.customerquote) %></td>
+            <td><%#= link_to site.region.name, region_url(site.region) %></td>
           </tr>
-        <% end %>
+        <%# end %>
       </tbody>
     </table>
   </div>
-</div>
+</div> -->

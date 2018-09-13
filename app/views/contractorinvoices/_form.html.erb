@@ -33,8 +33,10 @@
 
   <div class="field">
     <%= form.label :milestone_id %>
-    <%= form.collection_select :milestone_id, Milestone.all, :id, :milestone_type %>
+    <%= form.collection_select :milestone_id, Milestone.all, :id, :phase %>
   </div> 
+
+  <!-- Dynamic select the percentage of pay here -->
 
   <div class="actions">
     <%= form.submit %>

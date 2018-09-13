@@ -69,6 +69,6 @@ class CustomerquotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customerquote_params
-      params.require(:customerquote).permit(:name, :date, :amount, :costcenter_id)
+      params.require(:customerquote).permit(:name, :date, :amount, :costcenter_id, :site_id, :scope_id)
     end
 end

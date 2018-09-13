@@ -76,11 +76,13 @@ ActiveRecord::Schema.define(version: 2018_09_13_055227) do
     t.date "date"
     t.integer "amount"
     t.integer "customerquote_id"
+    t.integer "site_id"
     t.integer "scope_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["customerquote_id"], name: "index_customerpos_on_customerquote_id"
     t.index ["scope_id"], name: "index_customerpos_on_scope_id"
+    t.index ["site_id"], name: "index_customerpos_on_site_id"
   end
 
   create_table "customerquotes", force: :cascade do |t|
@@ -88,9 +90,13 @@ ActiveRecord::Schema.define(version: 2018_09_13_055227) do
     t.date "date"
     t.integer "amount"
     t.integer "costcenter_id"
+    t.integer "site_id"
+    t.integer "scope_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["costcenter_id"], name: "index_customerquotes_on_costcenter_id"
+    t.index ["scope_id"], name: "index_customerquotes_on_scope_id"
+    t.index ["site_id"], name: "index_customerquotes_on_site_id"
   end
 
   create_table "invoices", force: :cascade do |t|
@@ -144,13 +150,9 @@ ActiveRecord::Schema.define(version: 2018_09_13_055227) do
     t.integer "status_id"
     t.integer "scope_id"
     t.integer "town_id"
-    t.integer "customerpo_id"
-    t.integer "customerquote_id"
     t.integer "region_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["customerpo_id"], name: "index_sites_on_customerpo_id"
-    t.index ["customerquote_id"], name: "index_sites_on_customerquote_id"
     t.index ["region_id"], name: "index_sites_on_region_id"
     t.index ["scope_id"], name: "index_sites_on_scope_id"
     t.index ["status_id"], name: "index_sites_on_status_id"

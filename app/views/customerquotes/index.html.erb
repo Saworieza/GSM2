@@ -24,11 +24,14 @@
         <td><%= customerquote.date %></td>
         <td><%= customerquote.amount %></td>
         <td><%= customerquote.costcenter.number %></td>
-        <!-- <td><%#= customerquote.customerpo.number %></td> -->
-        <% customerquote.customerpos.each do |cpo| %>
-          <td><%= link_to cpo.number %></td><%# , customerpo_path(customerpo)%>
-          <td><%= link_to cpo.scope.scope_type, scope_path(cpo.scope) %></td>
-        <% end %>
+        <!-- <td><%#= customerquote.customerpo.number unless customerquote.customerpo.blank? %></td> -->
+        <%#= @foo.text unless @foo.blank? %>
+        <td>
+          <% customerquote.customerpos.each do |customerpo| %>
+            <%= link_to customerpo.number, customerpo %><%# %>
+          <% end %>
+        </td>
+        <td><%= customerquote.scope.scope_type %></td>
       </tr>
     <% end %>
   </tbody>

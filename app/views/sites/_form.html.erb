@@ -51,17 +51,17 @@
     <%= form.grouped_collection_select :town_id, Region.order(:name), :towns, :name, :id, :name %>
   </div>
 
-  <div class="field">
-    <%= form.label :customerquote_id %>
+  <!-- <div class="field">
+    <%#= form.label :customerquote_id %>
     <%#= form.text_field :customerquote_id %>
-    <%= form.collection_select :customerquote_id, Customerquote.all, :id, :name %>
+    <%#= form.collection_select :customerquote_id, Customerquote.all, :id, :name %>
   </div>
 
   <div class="field">
-    <%= form.label :customerpo_id %>
+    <%#= form.label :customerpo_id %>
     <%#= form.text_field :customerpo_id %>
-    <%= form.collection_select :customerpo_id, Customerpo.all, :id, :number %>
-  </div>
+    <%#= form.collection_select :customerpo_id, Customerpo.all, :id, :number %>
+  </div> -->
 
   <div class="actions">
     <%= form.submit %>

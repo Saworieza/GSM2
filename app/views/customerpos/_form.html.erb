@@ -48,6 +48,11 @@
     <%= form.collection_select :scope_id, Scope.all, :id, :scope_type %>
   </div> 
 
+  <div class="field">
+    <%= form.label :site_id %>
+    <%= form.collection_select :site_id, Site.all, :id, :name %>
+  </div> 
+
 
 
 <!-- <p>

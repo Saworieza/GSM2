@@ -7,8 +7,8 @@ class CreateSites < ActiveRecord::Migration[5.2]
       t.belongs_to :status, foreign_key: true
       t.belongs_to :scope, foreign_key: true
       t.belongs_to :town, foreign_key: true
-      t.belongs_to :customerpo, foreign_key: true
-      t.belongs_to :customerquote, foreign_key: true
+      # t.belongs_to :customerpo, foreign_key: true
+      # t.belongs_to :customerquote, foreign_key: true
       t.belongs_to :region, foreign_key: true
 
       t.timestamps

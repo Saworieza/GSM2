@@ -21,7 +21,7 @@
         <td><%= link_to contractorinvoice.number, contractorinvoice %></td>
         <td><%= contractorinvoice.date %></td>
         <td><%= contractorinvoice.amount %></td>
-        <td><%= contractorinvoice.milestone.milestone_type %></td>
+        <td><%= contractorinvoice.milestone.phase %></td>
         <td><%= link_to 'Edit', edit_contractorinvoice_path(contractorinvoice) %></td>
         <td><%= link_to 'Destroy', contractorinvoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

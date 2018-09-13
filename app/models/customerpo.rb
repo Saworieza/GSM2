@@ -2,7 +2,7 @@ class Customerpo < ApplicationRecord
   belongs_to :customerquote
   belongs_to :scope
 
-  has_many :sites
+  belongs_to :site
   
   def customerquote_name
   	customerquote.try(:name)

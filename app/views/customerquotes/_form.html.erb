@@ -32,8 +32,13 @@
   </div>
 
   <div class="field">
-    <%#= f.label :site %>
-    <%#= f.collection_select :site, Site.all, :id, :name %>
+    <%= f.label :site_id %>
+    <%= f.collection_select :site_id, Site.all, :id, :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :scope_id %>
+    <%= f.collection_select :scope_id, Scope.all, :id, :scope_type %>
   </div>
 
   <div class="actions">
