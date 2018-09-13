@@ -5,7 +5,6 @@ class CreateCustomerquotes < ActiveRecord::Migration[5.2]
       t.date :date
       t.integer :amount
       t.belongs_to :costcenter, foreign_key: true
-      t.belongs_to :site, foreign_key: true
       t.belongs_to :scope, foreign_key: true
 
       t.timestamps
