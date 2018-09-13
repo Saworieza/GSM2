@@ -111,6 +111,8 @@ ActiveRecord::Schema.define(version: 2018_09_12_135903) do
 
   create_table "milestones", force: :cascade do |t|
     t.string "milestone_type"
+    t.integer "phase"
+    t.integer "percentage"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
