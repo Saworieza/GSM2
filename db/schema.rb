@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_12_135903) do
+ActiveRecord::Schema.define(version: 2018_09_13_055227) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "name"
@@ -110,9 +110,7 @@ ActiveRecord::Schema.define(version: 2018_09_12_135903) do
   end
 
   create_table "milestones", force: :cascade do |t|
-    t.string "milestone_type"
-    t.integer "phase"
-    t.integer "percentage"
+    t.string "phase"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -157,6 +155,14 @@ ActiveRecord::Schema.define(version: 2018_09_12_135903) do
     t.index ["scope_id"], name: "index_sites_on_scope_id"
     t.index ["status_id"], name: "index_sites_on_status_id"
     t.index ["town_id"], name: "index_sites_on_town_id"
+  end
+
+  create_table "stages", force: :cascade do |t|
+    t.integer "percentage"
+    t.integer "milestone_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["milestone_id"], name: "index_stages_on_milestone_id"
   end
 
   create_table "statuses", force: :cascade do |t|

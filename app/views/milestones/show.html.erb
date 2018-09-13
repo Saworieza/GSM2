@@ -1,8 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Milestone type:</strong>
-  <%= @milestone.milestone_type %>
+  <strong>Milestone Phase:</strong>
+  <%= @milestone.phase %>
+</p>
+<p>
+	<strong>Milestone Stage</strong>
+	<%= @milestone.stages.ids %>
 </p>
 
 <%= link_to 'Edit', edit_milestone_path(@milestone) %> |

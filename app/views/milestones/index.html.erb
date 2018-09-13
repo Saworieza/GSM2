@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Milestone type</th>
+      <th scope="col">Milestone Phase</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,7 +15,8 @@
     <% @milestones.each do |milestone| %>
       <tr>
         <td scope="row"><%= milestone.id %></td>
-        <td><%= milestone.milestone_type.capitalize %></td>
+        <td><%= milestone.phase %></td>
+        <td><%= pluralize(milestone.stages.size, "Stage") %></td>
         <td><%= link_to 'Show', milestone %></td>
         <td><%= link_to 'Edit', edit_milestone_path(milestone) %></td>
         <td><%= link_to 'Destroy', milestone, method: :delete, data: { confirm: 'Are you sure?' } %></td>

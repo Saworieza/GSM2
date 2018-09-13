@@ -16,6 +16,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'font-awesome-rails'
+gem "cocoon"
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

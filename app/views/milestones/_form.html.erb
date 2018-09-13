@@ -12,19 +12,21 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :milestone_type %>
-    <%= form.text_field :milestone_type %>
-  </div>
-
-  <div class="field">
     <%= form.label :phase %>
-    <%= form.number_field :phase %>
+    <%= form.text_field :phase %>
   </div>
 
-  <div class="field">
-    <%= form.label :percentage %>
-    <%= form.number_field :percentage %>
+  <h3>stages</h3>
+  <div id="stages">
+    <%= form.fields_for :stages do |stage| %>
+      <%= render 'stage_fields', form: stage %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'add stage', form, :stages %>
+    </div>
   </div>
+
+
 
   <div class="actions">
     <%= form.submit %>
