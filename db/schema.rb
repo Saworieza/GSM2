@@ -76,10 +76,10 @@ ActiveRecord::Schema.define(version: 2018_09_13_182600) do
     t.date "date"
     t.integer "amount"
     t.integer "customerquote_id"
-    t.integer "site_id"
     t.integer "scope_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "site_id"
     t.index ["customerquote_id"], name: "index_customerpos_on_customerquote_id"
     t.index ["scope_id"], name: "index_customerpos_on_scope_id"
     t.index ["site_id"], name: "index_customerpos_on_site_id"
