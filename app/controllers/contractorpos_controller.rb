@@ -1,5 +1,6 @@
 class ContractorposController < ApplicationController
   before_action :set_contractorpo, only: [:show, :edit, :update, :destroy]
+  impressionist
 
   # GET /contractorpos
   # GET /contractorpos.json

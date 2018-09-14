@@ -1,5 +1,6 @@
 class CustomerquotesController < ApplicationController
   before_action :set_customerquote, only: [:show, :edit, :update, :destroy]
+  impressionist
 
   # GET /customerquotes
   # GET /customerquotes.json

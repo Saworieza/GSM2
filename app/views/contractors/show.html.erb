@@ -15,5 +15,27 @@
   <%= link_to @contractor.status.state, status_path(@contractor.status) %>
 </p>
 
+<p>
+  <strong>Site:</strong>
+  <%= link_to @contractor.site.name, site_path(@contractor.site) %>
+</p>
+
+<!-- <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Percentage</th>
+    </tr>
+  </thead>
+  <tbody>
+		<%# @contractor.sites.each do |site| %>
+			<tr>
+				<td scope="row"><%#= site.id %></td>
+				<td><%#= site.name %></td>
+			</tr>
+		<%# end %>
+	</tbody>
+</table> -->
+
 <%= link_to 'Edit', edit_contractor_path(@contractor) %> |
 <%= link_to 'Back', :back %>

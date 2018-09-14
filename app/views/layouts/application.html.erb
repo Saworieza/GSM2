@@ -9,6 +9,17 @@
     <%= stylesheet_link_tag    'themify-icons', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fingerprintjs2/1.8.0/fingerprint2.js">
+      setTimeout(function() {
+        // Wait one second to get consistent fingerprint value
+        new Fingerprint2().get(function(result, components) {
+          console.log(result) // a hash, representing your device fingerprint
+          console.log(components) // an array of FP components
+        })  
+      }, 1000);      
+    </script>
+
   </head>
 
   <body>

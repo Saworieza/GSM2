@@ -1,5 +1,6 @@
 class MilestonesController < ApplicationController
   before_action :set_milestone, only: [:show, :edit, :update, :destroy]
+  impressionist
 
   # GET /milestones
   # GET /milestones.json

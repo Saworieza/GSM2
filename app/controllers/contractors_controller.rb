@@ -1,5 +1,6 @@
 class ContractorsController < ApplicationController
   before_action :set_contractor, only: [:show, :edit, :update, :destroy]
+  impressionist
 
   # GET /contractors
   # GET /contractors.json
@@ -69,6 +70,6 @@ class ContractorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contractor_params
-      params.require(:contractor).permit(:name, :description, :status_id)
+      params.require(:contractor).permit(:name, :description, :status_id, :site_id)
     end
 end

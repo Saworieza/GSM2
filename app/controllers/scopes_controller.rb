@@ -1,5 +1,6 @@
 class ScopesController < ApplicationController
   before_action :set_scope, only: [:show, :edit, :update, :destroy]
+  impressionist
 
   # GET /scopes
   # GET /scopes.json

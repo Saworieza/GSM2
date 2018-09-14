@@ -1,5 +1,6 @@
 class ContractorquotesController < ApplicationController
   before_action :set_contractorquote, only: [:show, :edit, :update, :destroy]
+  impressionist
 
   # GET /contractorquotes
   # GET /contractorquotes.json
