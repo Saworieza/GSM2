@@ -7,12 +7,12 @@
 
 <p>
   <strong>Site:</strong>
-  <%= @paymentvoucher.site %>
+  <%= link_to @paymentvoucher.site.name, site_path(@paymentvoucher.site) %>
 </p>
 
 <p>
   <strong>Contractorinvoice:</strong>
-  <%= @paymentvoucher.contractorinvoice %>
+  <%= link_to @paymentvoucher.contractorinvoice.number, contractor_path(@paymentvoucher.contractorinvoice)%>
 </p>
 
 <%= link_to 'Edit', edit_paymentvoucher_path(@paymentvoucher) %> |
