@@ -1,8 +1,5 @@
 TO DO
 create model from another model
-fix site sourcing in customerpo
-
-add field - number to quote
 
 customerpo can have only one quote and one quote only has one customerpo
 
@@ -12,3 +9,6 @@ create the relationshop between quote and customerpo
 
 
 if milestonetype = x the amount = po/percentage
+
+
+dynamic select contractor to site for contractor quote. So say if contractor is mwangi, only sites belonging to mwangi are shown

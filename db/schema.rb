@@ -53,6 +53,10 @@ ActiveRecord::Schema.define(version: 2018_09_13_182600) do
     t.integer "customerpo_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "contractorpo_id"
+    t.integer "contractor_id"
+    t.index ["contractor_id"], name: "index_contractorquotes_on_contractor_id"
+    t.index ["contractorpo_id"], name: "index_contractorquotes_on_contractorpo_id"
     t.index ["customerpo_id"], name: "index_contractorquotes_on_customerpo_id"
     t.index ["site_id"], name: "index_contractorquotes_on_site_id"
   end

@@ -69,6 +69,6 @@ class ContractorquotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contractorquote_params
-      params.require(:contractorquote).permit(:number, :date, :amount, :description, :site_id, :customerpo_id)
+      params.require(:contractorquote).permit(:number, :date, :amount, :description, :site_id, :customerpo_id, :contractor_id)
     end
 end
