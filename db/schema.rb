@@ -26,7 +26,11 @@ ActiveRecord::Schema.define(version: 2018_09_13_182600) do
     t.integer "milestone_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "site_id"
+    t.integer "stage_id"
     t.index ["milestone_id"], name: "index_contractorinvoices_on_milestone_id"
+    t.index ["site_id"], name: "index_contractorinvoices_on_site_id"
+    t.index ["stage_id"], name: "index_contractorinvoices_on_stage_id"
   end
 
   create_table "contractorpos", force: :cascade do |t|
@@ -109,9 +113,13 @@ ActiveRecord::Schema.define(version: 2018_09_13_182600) do
     t.integer "site_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "milestone_id"
+    t.integer "stage_id"
     t.index ["customerpo_id"], name: "index_invoices_on_customerpo_id"
+    t.index ["milestone_id"], name: "index_invoices_on_milestone_id"
     t.index ["scope_id"], name: "index_invoices_on_scope_id"
     t.index ["site_id"], name: "index_invoices_on_site_id"
+    t.index ["stage_id"], name: "index_invoices_on_stage_id"
     t.index ["status_id"], name: "index_invoices_on_status_id"
   end
 

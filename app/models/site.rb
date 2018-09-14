@@ -6,4 +6,5 @@ class Site < ApplicationRecord
   
   has_many :customerpo
   has_many :customerquote
+  has_many :contractorinvoices
 end

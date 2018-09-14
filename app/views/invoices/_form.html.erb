@@ -50,6 +50,16 @@
     <%= form.collection_select :scope_id, Scope.all, :id, :scope_type %>
   </div>
 
+  <div class="field">
+    <%= form.label :milestone_id %>
+    <%= form.collection_select :milestone_id, Milestone.all, :id, :phase %>
+  </div>
+
+  <div class="field">
+    <%= form.label :stage_id %>
+    <%= form.grouped_collection_select :stage_id, Milestone.all, :stages, :phase, :id, :percentage %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

@@ -4,10 +4,27 @@
   <strong>Milestone Phase:</strong>
   <%= @milestone.phase %>
 </p>
-<p>
-	<strong>Milestone Stage</strong>
-	<%= @milestone.stages.ids %>
-</p>
+
+<h3>Milestone Stage</h3>
+ 
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Percentage</th>
+    </tr>
+  </thead>
+  <tbody>
+		<% @milestone.stages.each do |stage| %>
+			<tr>
+				<td scope="row"><%= stage.id %></td>
+				<td><%= stage.percentage %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+
 
 <%= link_to 'Edit', edit_milestone_path(@milestone) %> |
 <%= link_to 'Back', :back %>

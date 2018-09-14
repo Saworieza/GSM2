@@ -48,7 +48,7 @@
     <%= form.label :town_id %>
     <%#= form.text_field :town_id %>
     <%#= form.collection_select :town_id, Town.order(:name), :id, :name %>
-    <%= form.grouped_collection_select :town_id, Region.order(:name), :towns, :name, :id, :name %>
+    <%= form.grouped_collection_select :town_id, Region.all, :towns, :name, :id, :name %>
   </div>
 
   <!-- <div class="field">
