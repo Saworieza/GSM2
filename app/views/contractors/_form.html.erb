@@ -32,10 +32,10 @@
 
   <div class="field">
     <%= form.label :site_id %>
-    <%#= form.collection_select :site_id, Site.all, :id, :name %>
+    <%= form.collection_select :site_id, Site.all, :id, :name %>
     <%#= form.collection_select(:site_id, Site.all, :id, :name_with_initial, prompt: true) %>
     <%#= form.collection_select(:site_ids, Site.all, :id, :name,{}, {:multiple => true}) %>
-    <%= form.collection_select(:site_id, Site.all, :id, :name, {:prompt => "Please Select a site"}, {:multiple => true}) %>
+    <%#= form.collection_select(:site_id, Site.all, :id, :name, {:prompt => "Please Select a site"}, {:multiple => true}) %>
   </div> 
 
   <div class="actions">
