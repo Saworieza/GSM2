@@ -2,12 +2,13 @@
 
 <h1>Paymentvouchers</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Number</th>
-      <th>Site</th>
-      <th>Contractorinvoice</th>
+      <th scope="col">#</th>
+      <th scope="col">Number</th>
+      <th scope="col">Site</th>
+      <th scope="col">Contractorinvoice</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,12 +16,13 @@
   <tbody>
     <% @paymentvouchers.each do |paymentvoucher| %>
       <tr>
+        <td scope="row"><%= paymentvoucher.id %></td>
         <td><%= paymentvoucher.number %></td>
         <td><%= paymentvoucher.site %></td>
         <td><%= paymentvoucher.contractorinvoice %></td>
         <td><%= link_to 'Show', paymentvoucher %></td>
         <td><%= link_to 'Edit', edit_paymentvoucher_path(paymentvoucher) %></td>
-        <td><%= link_to 'Destroy', paymentvoucher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', paymentvoucher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
