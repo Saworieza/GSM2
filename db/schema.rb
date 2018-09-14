@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 2018_09_14_132940) do
     t.datetime "updated_at", null: false
     t.integer "site_id"
     t.integer "stage_id"
+    t.integer "contractorpo_id"
+    t.index ["contractorpo_id"], name: "index_contractorinvoices_on_contractorpo_id"
     t.index ["milestone_id"], name: "index_contractorinvoices_on_milestone_id"
     t.index ["site_id"], name: "index_contractorinvoices_on_site_id"
     t.index ["stage_id"], name: "index_contractorinvoices_on_stage_id"

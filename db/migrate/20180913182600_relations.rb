@@ -8,6 +8,8 @@ class Relations < ActiveRecord::Migration[5.2]
     add_reference :invoices, :stage, foreign_key: true
     add_reference :contractorinvoices, :stage, foreign_key: true
 
+    add_reference :contractorinvoices, :contractorpo, foreign_key: true
+
     add_reference :contractorquotes, :contractorpo, foreign_key: true
 
     add_reference :contractorquotes, :contractor, foreign_key: true
