@@ -17,13 +17,33 @@
   </div>
 
   <div class="field">
+    <%= form.label :amount %>
+    <%= form.text_field :amount %>
+  </div>
+
+  <div class="field">
     <%= form.label :site_id %>
     <%= form.collection_select :site_id, Site.all, :id, :name %>
   </div>
 
   <div class="field">
+    <%= form.label :contractor_id %>
+    <%= form.collection_select :contractor_id, Contractor.all, :id, :name %>
+  </div>
+
+  <div class="field">
     <%= form.label :contractorinvoice_id %>
     <%= form.collection_select :contractorinvoice_id, Contractorinvoice.all, :id, :number %>
+  </div>
+
+   <div class="field">
+    <%= form.label :milestone_id %>
+    <%= form.collection_select :milestone_id, Milestone.all, :id, :phase %>
+  </div>
+
+   <div class="field">
+    <%= form.label :stage_id %>
+    <%= form.collection_select :stage_id, Stage.all, :id, :percentage %>
   </div>
 
 
