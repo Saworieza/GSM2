@@ -17,6 +17,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date %>
+  </div>
+
+  <div class="field">
     <%= form.label :contractor_id %>
     <%= form.collection_select :contractor_id, Contractor.order(:name), :id, :name %>
   </div>

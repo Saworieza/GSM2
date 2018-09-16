@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 2018_09_16_190630) do
 
   create_table "contracts", force: :cascade do |t|
     t.integer "amount"
+    t.date "date"
     t.integer "contractor_id"
     t.integer "site_id"
     t.integer "contractorpo_id"

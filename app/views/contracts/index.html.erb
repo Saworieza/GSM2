@@ -7,6 +7,7 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Amount</th>
+      <th scope="col">Date</th>
       <th scope="col">Contractor</th>
       <th scope="col">Site</th>
       <th scope="col">Contractorpos</th>
@@ -19,6 +20,7 @@
       <tr>
         <td scope="row"><%= contract.id %></td>
         <td><%= contract.amount %></td>
+        <td><%= contract.date.strftime('%d %b, %Y') %></td>
         <td><%= link_to contract.contractor.name, contractor_url(contract.contractor) %></td>
         <td><%= link_to contract.site.name, site_url(contract.site) %></td>
         <td><%= link_to contract.contractorpo.number, contractorpo_url(contract.contractorpo) %></td>

@@ -6,6 +6,11 @@
 </p>
 
 <p>
+  <strong>Amount:</strong>
+  <%= @contract.date.strftime('%d %b, %Y') %>
+</p>
+
+<p>
   <strong>Contractor:</strong>
   <%= link_to @contract.contractor.name, contractor_url(@contract.contractor) %>
 </p>

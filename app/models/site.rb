@@ -9,6 +9,7 @@ class Site < ApplicationRecord
   has_many :customerpo
   has_many :customerquote
   has_many :contractorinvoices
+  has_many :contracts
 
   has_many :contractors
   def name_with_initial
