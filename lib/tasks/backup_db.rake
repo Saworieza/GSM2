@@ -22,7 +22,7 @@ namespace :db do
     desc "Dump entire db."
     task :write => :environment do 
 
-      dir = RAILS_ROOT + '/db/backup'
+      dir = Rails.root + '/db/backup'
       FileUtils.mkdir_p(dir)
       FileUtils.chdir(dir)
       interesting_tables.each do |tbl|
@@ -30,13 +30,13 @@ namespace :db do
         puts "Writing #{tbl}..."
         File.open("#{tbl}.yml", 'w+') { |f| YAML.dump klass.find(:all).collect(&:attributes), f }      
       end
-      FileUtils.chdir(RAILS_ROOT)
+      FileUtils.chdir(Rails.root)
     end
     
     desc "Loads the entire db."
     task :read => [:environment, 'db:schema:load'] do 
 
-      dir = RAILS_ROOT + '/db/backup'
+      dir = Rails.root + '/db/backup'
       FileUtils.mkdir_p(dir)
       FileUtils.chdir(dir)
     

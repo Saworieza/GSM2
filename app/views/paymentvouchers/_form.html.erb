@@ -22,6 +22,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date %>
+  </div>
+
+  <div class="field">
     <%= form.label :site_id %>
     <%= form.collection_select :site_id, Site.all, :id, :name %>
   </div>
