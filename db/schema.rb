@@ -169,11 +169,11 @@ ActiveRecord::Schema.define(version: 2018_09_14_132940) do
     t.integer "amount"
     t.integer "contractor_id"
     t.integer "milestone_id"
-    t.integer "stage_id"
     t.integer "site_id"
     t.integer "contractorinvoice_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "stage_id"
     t.index ["contractor_id"], name: "index_paymentvouchers_on_contractor_id"
     t.index ["contractorinvoice_id"], name: "index_paymentvouchers_on_contractorinvoice_id"
     t.index ["milestone_id"], name: "index_paymentvouchers_on_milestone_id"

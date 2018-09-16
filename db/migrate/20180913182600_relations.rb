@@ -15,5 +15,7 @@ class Relations < ActiveRecord::Migration[5.2]
     add_reference :contractorquotes, :contractor, foreign_key: true
 
     add_reference :contractors, :site, foreign_key: true
+
+    add_reference :paymentvouchers, :stage, foreign_key: true
   end
 end
