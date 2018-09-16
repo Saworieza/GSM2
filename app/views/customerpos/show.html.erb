@@ -29,6 +29,36 @@
 <%= link_to 'Back', :back %>
 
 
+<h2> Contractor Quotes</h2>
+<%= link_to 'New Contractor Quote', new_contractorquote_path %><br>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Number</th>
+      <th scope="col">Site</th>
+      <th scope="col">Contractor</th>
+      <th scope="col">Date</th>
+      <th scope="col">Amount</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customerpo.contractorquotes.each do |contractorquote| %>
+      <tr>
+        <td scope="row"><%= contractorquote.id %></td>
+        <td><%= link_to contractorquote.number, contractorquote_path(contractorquote) %></td>
+        <td><%= link_to contractorquote.site.name, site_path(contractorquote.site) %></td>
+        <td><%= link_to contractorquote.contractor.name, contractor_path(contractorquote.contractor) %></td>
+        <td><%= contractorquote.date.strftime("%d %b, %Y") %></td>
+        <td><%= contractorquote.amount %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <!-- <div class="row">
   <div class="col-lg-6">
     <h3>Sites</h3>

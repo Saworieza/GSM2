@@ -4,6 +4,8 @@ class Customerpo < ApplicationRecord
   belongs_to :scope
 
   belongs_to :site
+
+  has_many :contractorquotes
   
   def customerquote_name
   	customerquote.try(:name)

@@ -21,7 +21,7 @@
       <tr>
         <td><%= customerquote.id %></td>
         <td><%= link_to customerquote.name, customerquote %></td>
-        <td><%= customerquote.date %></td>
+        <td><%= customerquote.date.strftime("%d %b, %Y") %></td>
         <td><%= customerquote.amount %></td>
         <td><%= customerquote.costcenter.number %></td>check if child element exists if not display text rails
         <!-- <td><%#= customerquote.customerpo.number unless customerquote.customerpo.blank? %></td> -->
