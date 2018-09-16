@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  amount: 1
+  contractor: one
+  site: one
+  contractorpos: one
+
+two:
+  amount: 1
+  contractor: two
+  site: two
+  contractorpos: two

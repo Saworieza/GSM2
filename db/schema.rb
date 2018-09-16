@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_14_132940) do
+ActiveRecord::Schema.define(version: 2018_09_16_190630) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "name"
@@ -72,6 +72,18 @@ ActiveRecord::Schema.define(version: 2018_09_14_132940) do
     t.integer "site_id"
     t.index ["site_id"], name: "index_contractors_on_site_id"
     t.index ["status_id"], name: "index_contractors_on_status_id"
+  end
+
+  create_table "contracts", force: :cascade do |t|
+    t.integer "amount"
+    t.integer "contractor_id"
+    t.integer "site_id"
+    t.integer "contractorpo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contractor_id"], name: "index_contracts_on_contractor_id"
+    t.index ["contractorpo_id"], name: "index_contracts_on_contractorpo_id"
+    t.index ["site_id"], name: "index_contracts_on_site_id"
   end
 
   create_table "costcenters", force: :cascade do |t|
