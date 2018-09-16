@@ -22,7 +22,7 @@
       <tr>
         <td><%= invoice.id %></td>
         <td><%= invoice.number %></td>
-        <td><%= invoice.date %></td>
+        <td><%= invoice.date.strftime("%d %b, %Y") %></td>
         <td><%= invoice.amount %></td>
         <td><%= invoice.status.state %></td>
         <td><%= invoice.scope.scope_type %></td>

@@ -20,7 +20,7 @@
       <tr>
         <td scope="row"><%= contractorpo.id %></td>
         <td><%= link_to contractorpo.number, contractorpo %></td>
-        <td><%= contractorpo.date %></td>
+        <td><%= contractorpo.date.strftime("%d %b, %Y") %></td>
         <td><%= contractorpo.amount %></td>
         <td><%= contractorpo.description %></td>
         <td><%= link_to contractorpo.contractorquote.number, contractorquote_path(contractorpo.contractorquote) %></td>

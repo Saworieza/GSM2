@@ -20,7 +20,7 @@
       <tr>
         <td scope="row"><%= customerpo.id %></td>
         <td><%= customerpo.number %></td>
-        <td><%= customerpo.date %></td>
+        <td><%= customerpo.date.strftime("%d %b, %Y") %></td>
         <td><%= customerpo.amount %></td>
         <td><%= customerpo.customerquote.name %></td>
         <td><%= customerpo.scope.scope_type %></td>

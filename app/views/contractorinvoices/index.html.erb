@@ -19,7 +19,7 @@
       <tr>
         <td scope="row"><%= contractorinvoice.id %></td>
         <td><%= link_to contractorinvoice.number, contractorinvoice %></td>
-        <td><%= contractorinvoice.date %></td>
+        <td><%= contractorinvoice.date.strftime("%d %b, %Y") %></td>
         <td><%= contractorinvoice.amount %></td>
         <td><%= contractorinvoice.milestone.phase %></td>
         <td><%= link_to 'Edit', edit_contractorinvoice_path(contractorinvoice) %></td>

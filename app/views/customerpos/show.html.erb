@@ -7,7 +7,7 @@
 
 <p>
   <strong>Date:</strong>
-  <%= @customerpo.date %>
+  <%= @customerpo.date.strftime("%d %b, %Y") %>
 </p>
 
 <p>
@@ -20,7 +20,7 @@
   <%= link_to @customerpo.customerquote.name, customerquote_path(@customerpo.customerquote) %>
 </p>
 
-<p>
+<p>w
   <strong>Scope:</strong>
   <%= link_to @customerpo.scope.scope_type, scope_path(@customerpo.scope) %>
 </p>
