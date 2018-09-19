@@ -6,4 +6,7 @@ class Invoice < ApplicationRecord
   belongs_to :site
   belongs_to :milestone
   belongs_to :stage
+
+  validates :number, uniqueness: true
+	# validates_presence_of :description
 end

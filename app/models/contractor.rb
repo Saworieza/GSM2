@@ -6,4 +6,7 @@ class Contractor < ApplicationRecord
 
   has_many :contractorquotes
   has_many :contracts
+
+  validates :name, uniqueness: true
+	# validates_presence_of :description
 end

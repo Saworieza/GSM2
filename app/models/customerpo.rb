@@ -7,6 +7,9 @@ class Customerpo < ApplicationRecord
 
   has_many :contractorquotes
   
+  validates :number, uniqueness: true
+  # validates_presence_of :description
+  
   def customerquote_name
   	customerquote.try(:name)
   end

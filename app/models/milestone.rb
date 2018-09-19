@@ -5,4 +5,8 @@ class Milestone < ApplicationRecord
 
   has_many :invoices
   has_many :customerinvoices
+
+
+  validates :phase, uniqueness: true
+	# validates_presence_of :description
 end

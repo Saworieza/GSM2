@@ -3,4 +3,7 @@ class Costcenter < ApplicationRecord
   belongs_to :account
 
   has_many :customerquotes
+
+  validates :number, uniqueness: true
+	# validates_presence_of :description
 end

@@ -3,4 +3,7 @@ class Town < ApplicationRecord
   belongs_to :region
 
   has_many :sites
+
+  validates :name, uniqueness: true
+	# validates_presence_of :description
 end
