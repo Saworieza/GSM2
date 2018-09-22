@@ -1,6 +1,6 @@
 class ContractorsController < ApplicationController
   before_action :set_contractor, only: [:show, :edit, :update, :destroy]
-  impressionist
+  # impressionist
 
   # GET /contractors
   # GET /contractors.json

@@ -1,6 +1,6 @@
 class AccountsController < ApplicationController
   before_action :set_account, only: [:show, :edit, :update, :destroy]
-  impressionist
+  # impressionist
   # validates_presence_of :name
 
   # GET /accounts

@@ -1,5 +1,5 @@
 class Invoice < ApplicationRecord
-	is_impressionable
+	# is_impressionable
   belongs_to :status
   belongs_to :scope
   belongs_to :customerpo

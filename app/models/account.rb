@@ -1,5 +1,5 @@
 class Account < ApplicationRecord
-	is_impressionable
+	# is_impressionable
 	has_many :costcenters
 
 	validates :name, uniqueness: true

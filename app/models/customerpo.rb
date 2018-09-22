@@ -1,5 +1,5 @@
 class Customerpo < ApplicationRecord
-	is_impressionable
+	# is_impressionable
   belongs_to :customerquote
   belongs_to :scope
 

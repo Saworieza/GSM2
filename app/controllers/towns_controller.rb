@@ -1,6 +1,6 @@
 class TownsController < ApplicationController
   before_action :set_town, only: [:show, :edit, :update, :destroy]
-  impressionist
+  # impressionist
 
   # GET /towns
   # GET /towns.json

@@ -1,5 +1,5 @@
 class Costcenter < ApplicationRecord
-	is_impressionable
+	# is_impressionable
   belongs_to :account
 
   has_many :customerquotes

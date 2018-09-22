@@ -1,6 +1,6 @@
 class CustomerposController < ApplicationController
   before_action :set_customerpo, only: [:show, :edit, :update, :destroy]
-  impressionist
+  # impressionist
 
   # GET /customerpos
   # GET /customerpos.json

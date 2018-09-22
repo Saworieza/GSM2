@@ -1,6 +1,6 @@
 class CostcentersController < ApplicationController
   before_action :set_costcenter, only: [:show, :edit, :update, :destroy]
-  impressionist
+  # impressionist
 
   # GET /costcenters
   # GET /costcenters.json

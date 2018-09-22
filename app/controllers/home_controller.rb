@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-	impressionist
+	# impressionist
   def index
   	@accounts = Account.all
   end

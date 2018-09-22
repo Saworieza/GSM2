@@ -1,5 +1,5 @@
 class Contractorinvoice < ApplicationRecord
-	is_impressionable
+	# is_impressionable
 	
   belongs_to :milestone
   belongs_to :stage

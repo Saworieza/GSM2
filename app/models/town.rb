@@ -1,5 +1,5 @@
 class Town < ApplicationRecord
-	is_impressionable
+	# is_impressionable
   belongs_to :region
 
   has_many :sites

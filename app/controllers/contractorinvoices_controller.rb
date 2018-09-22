@@ -1,6 +1,6 @@
 class ContractorinvoicesController < ApplicationController
   before_action :set_contractorinvoice, only: [:show, :edit, :update, :destroy]
-  impressionist
+  # impressionist
 
   # GET /contractorinvoices
   # GET /contractorinvoices.json

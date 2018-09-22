@@ -1,5 +1,5 @@
 class Customerquote < ApplicationRecord
-	is_impressionable
+	# is_impressionable
   belongs_to :costcenter
   belongs_to :site
   belongs_to :scope

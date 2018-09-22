@@ -1,6 +1,6 @@
 class PaymentvouchersController < ApplicationController
   before_action :set_paymentvoucher, only: [:show, :edit, :update, :destroy]
-  impressionist
+  # impressionist
 
   # GET /paymentvouchers
   # GET /paymentvouchers.json

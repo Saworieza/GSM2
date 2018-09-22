@@ -1,5 +1,5 @@
 class Status < ApplicationRecord
-	is_impressionable
+	# is_impressionable
 	has_many :sites
 
 	validates :state, uniqueness: true
