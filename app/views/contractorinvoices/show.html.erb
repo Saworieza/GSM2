@@ -1,4 +1,11 @@
 <p id="notice"><%= notice %></p>
+<p>
+  <strong>Contractor:</strong>
+  <%= @contractorinvoice.contractor.name %><br>
+  <%= @contractorinvoice.contractor.description %><br>
+  <%= @contractorinvoice.contractor.telephone %><br>
+  <%= @contractorinvoice.contractor.email %>
+</p>
 
 <p>
   <strong>Invoice to:</strong>
@@ -27,7 +34,7 @@
 
 <p>
   <strong>Ref: LPO No</strong>
-  <%= @contractorinvoice.contractorpo.number %>
+  <%= link_to @contractorinvoice.contractorpo.number, contractorpo_url(@contractorinvoice.contractorpo) %>
 </p>
 
 <p>
@@ -52,6 +59,7 @@
 
 <p>
   <strong>Amount:</strong>
+  <%= (@contractorinvoice.contractorpo.amount * (@contractorinvoice.stage.percentage/100)).round(2) %>
   <%#= @contractorinvoice.amount %>
 </p>
 

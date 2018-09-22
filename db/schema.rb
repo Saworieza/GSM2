@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2018_09_16_190630) do
   create_table "contractorpos", force: :cascade do |t|
     t.string "number"
     t.date "date"
-    t.integer "amount"
+    t.float "amount"
     t.text "description"
     t.integer "contractorquote_id"
     t.datetime "created_at", null: false
@@ -236,7 +236,7 @@ ActiveRecord::Schema.define(version: 2018_09_16_190630) do
   end
 
   create_table "stages", force: :cascade do |t|
-    t.integer "percentage"
+    t.float "percentage"
     t.integer "milestone_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
