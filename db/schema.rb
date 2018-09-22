@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2018_09_16_190630) do
   end
 
   create_table "contractorpos", force: :cascade do |t|
-    t.bigint "number"
+    t.string "number"
     t.date "date"
     t.integer "amount"
     t.text "description"
@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(version: 2018_09_16_190630) do
   end
 
   create_table "customerpos", force: :cascade do |t|
-    t.bigint "number"
+    t.string "number"
     t.date "date"
     t.integer "amount"
     t.integer "customerquote_id"
@@ -160,7 +160,7 @@ ActiveRecord::Schema.define(version: 2018_09_16_190630) do
   create_table "invoices", force: :cascade do |t|
     t.text "invoice_to"
     t.text "pin"
-    t.bigint "number"
+    t.string "number"
     t.string "unit"
     t.date "date"
     t.integer "amount"
@@ -190,7 +190,7 @@ ActiveRecord::Schema.define(version: 2018_09_16_190630) do
   end
 
   create_table "paymentvouchers", force: :cascade do |t|
-    t.bigint "number"
+    t.string "number"
     t.date "date"
     t.integer "amount"
     t.integer "contractor_id"
@@ -221,7 +221,7 @@ ActiveRecord::Schema.define(version: 2018_09_16_190630) do
 
   create_table "sites", force: :cascade do |t|
     t.string "name"
-    t.bigint "number"
+    t.string "number"
     t.integer "tower_height"
     t.integer "status_id"
     t.integer "scope_id"

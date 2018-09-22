@@ -1,7 +1,7 @@
 class CreatePaymentvouchers < ActiveRecord::Migration[5.2]
   def change
     create_table :paymentvouchers do |t|
-      t.bigint :number
+      t.string :number
       t.date :date
       t.integer :amount
       

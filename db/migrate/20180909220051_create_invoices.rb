@@ -3,7 +3,7 @@ class CreateInvoices < ActiveRecord::Migration[5.2]
     create_table :invoices do |t|
       t.text :invoice_to
       t.text :pin
-      t.bigint :number
+      t.string :number
       t.string :unit
       t.date :date
       t.integer :amount
