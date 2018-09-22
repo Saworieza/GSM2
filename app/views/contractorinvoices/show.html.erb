@@ -1,8 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Number:</strong>
-  <%= @contractorinvoice.number %>
+  <strong>Invoice to:</strong>
+  <%= @contractorinvoice.invoice_to %>
+</p>
+
+<p>
+  <strong>Pin No:</strong>
+  <%= @contractorinvoice.pin %>
 </p>
 
 <p>
@@ -11,14 +16,46 @@
 </p>
 
 <p>
-  <strong>Amount:</strong>
-  <%= @contractorinvoice.amount %>
+  <strong>Quotation No:</strong>
+  <%= @contractorinvoice.contractorquote.number %>
 </p>
 
 <p>
-  <strong>Milestone:</strong>
-  <%= @contractorinvoice.milestone.phase %>
+  <strong>Invoice Number:</strong>
+  <%= @contractorinvoice.number %>
 </p>
+
+<p>
+  <strong>Ref: LPO No</strong>
+  <%= @contractorinvoice.contractorpo.number %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @contractorinvoice.description %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @contractorinvoice.stage.percentage %>
+</p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @contractorinvoice.unit %>
+</p>
+
+<p>
+  <strong>Purchase Order Amount:</strong>
+  <%= @contractorinvoice.contractorpo.amount %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%#= @contractorinvoice.amount %>
+</p>
+
+
 
 <%= link_to 'Edit', edit_contractorinvoice_path(@contractorinvoice) %> |
 <%= link_to 'Back', contractorinvoices_path %>

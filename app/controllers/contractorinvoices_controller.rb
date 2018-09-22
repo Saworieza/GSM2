@@ -70,6 +70,6 @@ class ContractorinvoicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contractorinvoice_params
-      params.require(:contractorinvoice).permit(:invoice_to, :pin, :description, :number, :date, :amount, :milestone_id, :stage_id, :site_id, :contractorpo_id)
+      params.require(:contractorinvoice).permit(:invoice_to, :pin, :description, :number, :date, :unit, :milestone_id, :stage_id, :contractorquote_id, :contractorpo_id)
     end
 end

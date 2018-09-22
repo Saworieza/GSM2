@@ -42,28 +42,39 @@
   </div>
 
   <div class="field">
-    <%= form.label :amount %>
-    <%= form.number_field :amount %>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
   </div>
-
-  <div class="field">
-    <%= form.label :site_id %>
-    <%= form.collection_select :site_id, Site.all, :id, :name %>
-  </div>
-
   
-
+  <!-- milestone and stage are value -->
   <div class="field">
     <%= form.label :milestone_id %>
     <%= form.collection_select :milestone_id, Milestone.all, :id, :phase %>
   </div> 
 
+  <!-- Dynamic select the percentage of pay here -->
   <div class="field">
     <%= form.label :stage_id %>
     <%= form.grouped_collection_select :stage_id, Milestone.all, :stages, :phase, :id, :percentage %>
   </div>
 
-  <!-- Dynamic select the percentage of pay here -->
+  <div class="field">
+    <%= form.label :unit %>
+    <%= form.text_field :unit %>
+  </div>
+
+  <!-- This field is autocalculated. remove it once the math method is written -->
+  <div class="field">
+    <%= form.label :amount %>
+    <%#= form.number_field :amount %>
+  </div>
+
+
+  <!-- this is not needed here -->
+  <!-- <div class="field">
+    <%#= form.label :site_id %>
+    <%#= form.collection_select :contractor_id, Site.all, :id, :name %>
+  </div> -->
 
   <div class="actions">
     <%= form.submit %>

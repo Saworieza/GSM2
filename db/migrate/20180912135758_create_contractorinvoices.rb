@@ -5,9 +5,9 @@ class CreateContractorinvoices < ActiveRecord::Migration[5.2]
       t.text :pin
       t.string :unit
       t.text :description
-      t.bigint :number
+      t.string :number
       t.date :date
-      t.integer :amount
+      
       t.belongs_to :milestone, foreign_key: true
 
       t.timestamps

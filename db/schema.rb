@@ -21,21 +21,22 @@ ActiveRecord::Schema.define(version: 2018_09_16_190630) do
 
   create_table "contractorinvoices", force: :cascade do |t|
     t.text "invoice_to"
-    t.bigint "pin"
+    t.text "pin"
     t.string "unit"
     t.text "description"
-    t.bigint "number"
+    t.string "number"
     t.date "date"
-    t.integer "amount"
     t.integer "milestone_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "site_id"
+    t.integer "contractor_id"
     t.integer "stage_id"
     t.integer "contractorpo_id"
+    t.integer "contractorquote_id"
+    t.index ["contractor_id"], name: "index_contractorinvoices_on_contractor_id"
     t.index ["contractorpo_id"], name: "index_contractorinvoices_on_contractorpo_id"
+    t.index ["contractorquote_id"], name: "index_contractorinvoices_on_contractorquote_id"
     t.index ["milestone_id"], name: "index_contractorinvoices_on_milestone_id"
-    t.index ["site_id"], name: "index_contractorinvoices_on_site_id"
     t.index ["stage_id"], name: "index_contractorinvoices_on_stage_id"
   end
 
