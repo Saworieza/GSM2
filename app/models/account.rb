@@ -4,4 +4,6 @@ class Account < ApplicationRecord
 
 	validates :name, uniqueness: true
 	# validates_presence_of :description
+
+	#Send Jackie BrickNLace
 end

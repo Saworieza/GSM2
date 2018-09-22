@@ -5,6 +5,7 @@ class Customerquote < ApplicationRecord
   belongs_to :scope
 
   has_many :customerpos
+  has_many :invoices
 
   validates :name, uniqueness: true
 	# validates_presence_of :description

@@ -1,7 +1,7 @@
 class CreateContractorquotes < ActiveRecord::Migration[5.2]
   def change
     create_table :contractorquotes do |t|
-      t.bigint :number
+      t.text :number
       t.date :date
       t.integer :amount
       t.text :description

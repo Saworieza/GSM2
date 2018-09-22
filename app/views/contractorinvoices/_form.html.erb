@@ -12,13 +12,33 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :number %>
-    <%= form.text_field :number %>
+    <%= form.label :invoice_to %>
+    <%= form.text_area :invoice_to %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pin %>
+    <%= form.text_field :pin %>
   </div>
 
   <div class="field">
     <%= form.label :date %>
     <%= form.date_select :date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contractorquote_id %>
+    <%= form.collection_select :contractorquote_id, Contractorquote.all, :id, :number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :number %>
+    <%= form.text_field :number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contractorpo_id %>
+    <%= form.collection_select :contractorpo_id, Contractorpo.all, :id, :number %>
   </div>
 
   <div class="field">
@@ -31,10 +51,7 @@
     <%= form.collection_select :site_id, Site.all, :id, :name %>
   </div>
 
-  <div class="field">
-    <%= form.label :contractorpo_id %>
-    <%= form.collection_select :contractorpo_id, Contractorpo.all, :id, :number %>
-  </div>
+  
 
   <div class="field">
     <%= form.label :milestone_id %>

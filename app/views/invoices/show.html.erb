@@ -1,4 +1,18 @@
 <p id="notice"><%= notice %></p>
+<p>
+  <strong>Invoice To:</strong>
+  <%= @invoice.invoice_to %>
+</p>
+
+<p>
+  <strong>Pin:</strong>
+  <%= @invoice.pin %>
+</p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @invoice.unit %>
+</p>
 
 <p>
   <strong>Number:</strong>
@@ -20,8 +34,13 @@
 </p>
 
 <p>
-  <strong>Customerpo:</strong>
+  <strong>Customer PO:</strong>
   <%= link_to @invoice.customerpo.number , customerpo_url(@invoice.customerpo) %>
+</p>
+
+<p>
+  <strong>Purchase Order Amount:</strong>
+  <%= @invoice.customerpo.amount %>
 </p>
 
 <p>
@@ -33,6 +52,12 @@
   <strong>Scope:</strong>
   <%= link_to @invoice.scope.scope_type, scope_url(@invoice.scope) %>
 </p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @invoice.description %>
+</p>
+
 
 <%= link_to 'Edit', edit_invoice_path(@invoice) %> |
 <%= link_to 'Back', :back %>

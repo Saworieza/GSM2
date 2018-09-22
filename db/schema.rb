@@ -20,6 +20,10 @@ ActiveRecord::Schema.define(version: 2018_09_16_190630) do
   end
 
   create_table "contractorinvoices", force: :cascade do |t|
+    t.text "invoice_to"
+    t.bigint "pin"
+    t.string "unit"
+    t.text "description"
     t.bigint "number"
     t.date "date"
     t.integer "amount"
@@ -47,7 +51,7 @@ ActiveRecord::Schema.define(version: 2018_09_16_190630) do
   end
 
   create_table "contractorquotes", force: :cascade do |t|
-    t.bigint "number"
+    t.text "number"
     t.date "date"
     t.integer "amount"
     t.text "description"
@@ -65,6 +69,8 @@ ActiveRecord::Schema.define(version: 2018_09_16_190630) do
 
   create_table "contractors", force: :cascade do |t|
     t.string "name"
+    t.string "email"
+    t.integer "telephone"
     t.text "description"
     t.integer "status_id"
     t.datetime "created_at", null: false
@@ -151,11 +157,16 @@ ActiveRecord::Schema.define(version: 2018_09_16_190630) do
   end
 
   create_table "invoices", force: :cascade do |t|
+    t.text "invoice_to"
+    t.text "pin"
     t.bigint "number"
+    t.string "unit"
     t.date "date"
     t.integer "amount"
+    t.text "description"
     t.integer "status_id"
     t.integer "scope_id"
+    t.integer "customerquote_id"
     t.integer "customerpo_id"
     t.integer "site_id"
     t.datetime "created_at", null: false
@@ -163,6 +174,7 @@ ActiveRecord::Schema.define(version: 2018_09_16_190630) do
     t.integer "milestone_id"
     t.integer "stage_id"
     t.index ["customerpo_id"], name: "index_invoices_on_customerpo_id"
+    t.index ["customerquote_id"], name: "index_invoices_on_customerquote_id"
     t.index ["milestone_id"], name: "index_invoices_on_milestone_id"
     t.index ["scope_id"], name: "index_invoices_on_scope_id"
     t.index ["site_id"], name: "index_invoices_on_site_id"
