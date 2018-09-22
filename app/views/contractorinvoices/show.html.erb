@@ -1,69 +1,142 @@
 <p id="notice"><%= notice %></p>
-<p>
-  <strong>Contractor:</strong>
-  <%= @contractorinvoice.contractor.name %><br>
-  <%= @contractorinvoice.contractor.description %><br>
-  <%= @contractorinvoice.contractor.telephone %><br>
-  <%= @contractorinvoice.contractor.email %>
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <p class="float-right">
+        <strong>Contractor:</strong>
+        <h2><%= link_to @contractorinvoice.contractor.name, contractor_url(@contractorinvoice.contractor) %></h2>
+        <%= @contractorinvoice.contractor.description %><br>
+        <%= @contractorinvoice.contractor.telephone %><br>
+        <%= @contractorinvoice.contractor.email %>
+      </p>
+      <h3>Invoice</h3>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="col-lg-8">
+          <p>
+            <strong>Invoice to:</strong><br>
+            <%= @contractorinvoice.invoice_to %>
+          </p>
+        </div>
+        <div class="col-lg-4">
+          <p>
+            <strong>Pin No:</strong><br>
+            <%= @contractorinvoice.pin %>
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <p class="col-lg-6"></p>
+        <p class="col-lg-6">
+          <strong>Date :</strong>
+          <%= @contractorinvoice.date.strftime("%d %b, %Y") %>
+          <br>
+          <strong>Quotation No:</strong>
+          <%= link_to @contractorinvoice.contractorquote.number, contractorquote_url(@contractorinvoice.contractorquote) %>
+          <br>
+          <strong>Invoice Number:</strong>
+          <%= @contractorinvoice.number %>
+          <br>
+          <strong>Ref: LPO No</strong>
+          <%= link_to @contractorinvoice.contractorpo.number, contractorpo_url(@contractorinvoice.contractorpo) %>
+        </p>
+      </div>
 
-<p>
-  <strong>Invoice to:</strong>
-  <%= @contractorinvoice.invoice_to %>
-</p>
-
-<p>
-  <strong>Pin No:</strong>
-  <%= @contractorinvoice.pin %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @contractorinvoice.date.strftime("%d %b, %Y") %>
-</p>
-
-<p>
-  <strong>Quotation No:</strong>
-  <%= @contractorinvoice.contractorquote.number %>
-</p>
-
-<p>
-  <strong>Invoice Number:</strong>
-  <%= @contractorinvoice.number %>
-</p>
-
-<p>
-  <strong>Ref: LPO No</strong>
-  <%= link_to @contractorinvoice.contractorpo.number, contractorpo_url(@contractorinvoice.contractorpo) %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @contractorinvoice.description %>
-</p>
-
-<p>
-  <strong>Value:</strong>
-  <%= @contractorinvoice.stage.percentage %>
-</p>
-
-<p>
-  <strong>Unit:</strong>
-  <%= @contractorinvoice.unit %>
-</p>
-
-<p>
-  <strong>Purchase Order Amount:</strong>
-  <%= @contractorinvoice.contractorpo.amount %>
-</p>
-
-<p>
-  <strong>Amount:</strong>
-  <%= (@contractorinvoice.contractorpo.amount * (@contractorinvoice.stage.percentage/100)).round(2) %>
-  <%#= @contractorinvoice.amount %>
-</p>
-
+      <div class="col-lg-12">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>
+                Item
+              </th>
+              <th>
+                Description
+              </th>
+              <th>
+                Value
+              </th>
+              <th>
+                Unit
+              </th>
+              <th>
+                Purchase Order Amount
+              </th>
+              <th>
+                Amount
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                1
+              </td>
+              <td>
+                <%= @contractorinvoice.description %>
+              </td>
+              <td>
+                <%= @contractorinvoice.stage.percentage %>
+              </td>
+              <td>
+                <%= @contractorinvoice.unit %>
+              </td>
+              <td>
+                <%= @contractorinvoice.contractorpo.amount %>
+              </td>
+              <td>
+                <%= (@contractorinvoice.contractorpo.amount * (@contractorinvoice.stage.percentage/100)).round(2) %>
+              </td>
+            </tr>
+            <tr>
+              <td class="borderless"></td>
+              <td class="borderless">Withholding Tax Deduction 3% - <%= ((@contractorinvoice.contractorpo.amount * (@contractorinvoice.stage.percentage/100)).round(2) * 0.03).round(2) %></td>
+              <td class="borderless"></td>
+              <td class="borderless"></td>
+              <td>
+                Subtotal
+              </td>
+              <td>
+                <%= (@contractorinvoice.contractorpo.amount * (@contractorinvoice.stage.percentage/100)).round(2) %>
+              </td>
+            </tr>
+            <tr>
+              <td class="borderless"></td>
+              <td class="borderless">
+                6% WHVAT  - <%= ((@contractorinvoice.contractorpo.amount * (@contractorinvoice.stage.percentage/100)).round(2) * 0.06).round(2) %>
+              </td>
+              <td class="borderless"></td>
+              <td class="borderless"></td>
+              <td>16% Tax</td>
+              <td><%= ((@contractorinvoice.contractorpo.amount * (@contractorinvoice.stage.percentage/100)).round(2) * 0.16).round(2) %></td>
+            </tr>
+            <tr>
+              <td class="borderless"></td>
+              <td class="borderless"></td>
+              <td class="borderless"></td>
+              <td class="borderless"></td>
+              <td>Total</td>
+              <td><%= (@contractorinvoice.contractorpo.amount * (@contractorinvoice.stage.percentage/100)).round(2) + ((@contractorinvoice.contractorpo.amount * (@contractorinvoice.stage.percentage/100)).round(2) * 0.16).round(2) %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <%= link_to 'Edit', edit_contractorinvoice_path(@contractorinvoice) %> |
 <%= link_to 'Back', contractorinvoices_path %>
+
+
+<style type="text/css">
+  .borderless{
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+  }
+</style>
+
+

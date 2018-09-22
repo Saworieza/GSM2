@@ -6,4 +6,5 @@ class Contractorquote < ApplicationRecord
 
   validates :number, uniqueness: true
 	# validates_presence_of :description
+	has_many :contractorinvoices
 end

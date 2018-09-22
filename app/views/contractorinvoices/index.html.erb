@@ -8,8 +8,8 @@
       <th scope="col">#</th>
       <th scope="col">Number</th>
       <th scope="col">Date</th>
+      <th scope="col">Value</th>
       <th scope="col">Amount</th>
-      <th scope="col">Milestone</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,8 +20,8 @@
         <td scope="row"><%= contractorinvoice.id %></td>
         <td><%= link_to contractorinvoice.number, contractorinvoice %></td>
         <td><%= contractorinvoice.date.strftime("%d %b, %Y") %></td>
-        <td><%= contractorinvoice.contractorpo.amount / contractorinvoice.stage.percentage %></td>
-        <td><%= contractorinvoice.milestone.phase %></td>
+        <td><%= contractorinvoice.stage.percentage %></td>
+        <td><%= (contractorinvoice.contractorpo.amount / contractorinvoice.stage.percentage).round(2) %></td>
         <td><%= link_to 'Edit', edit_contractorinvoice_path(contractorinvoice) %></td>
         <td><%= link_to 'Destroy', contractorinvoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
