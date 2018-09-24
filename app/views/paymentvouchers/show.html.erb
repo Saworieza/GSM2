@@ -6,14 +6,90 @@
 </p>
 
 <p>
-  <strong>Site:</strong>
-  <%= link_to @paymentvoucher.site.name, site_path(@paymentvoucher.site) %>
+  <strong>Date:</strong>
+  <%= @paymentvoucher.date %>
 </p>
 
 <p>
-  <strong>Contractorinvoice:</strong>
-  <%= link_to @paymentvoucher.contractorinvoice.number, contractor_path(@paymentvoucher.contractorinvoice)%>
+  <strong>P.I.N:</strong>
+  <%= @paymentvoucher.pin_no %>
 </p>
+
+<p>
+  <strong>V.A.T:</strong>
+  <%= @paymentvoucher.vat_no %>
+</p>
+
+<p>
+	1. Debit a/c<br>
+  <strong>Payment to : </strong>
+  <%= link_to @paymentvoucher.contractorinvoice.contractor.name, contractor_url(@paymentvoucher.contractorinvoice.contractor)%>
+</p>
+
+
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>
+        Required For
+      </th>
+      <th>
+        Qty
+      </th>
+      <th>
+        Amount(KES)
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <%= link_to @paymentvoucher.contractorinvoice.description, contractor_path(@paymentvoucher.contractorinvoice)%><br>
+      	This Invoice <b><%= link_to @paymentvoucher.contractorinvoice.number, contractor_path(@paymentvoucher.contractorinvoice)%></b>
+      </td>
+      <td>	1</td>
+      <td><%= @paymentvoucher.amount %></td>
+    </tr>
+    <tr>
+      <td>
+        Sub - Total
+      </td>
+      <td class=""></td>
+      <td><%= @paymentvoucher.amount %></td>
+    </tr>
+    <tr>
+      <td>WHT (05% / 03%)</td>
+      <td class=""></td>
+      <td><%= (@paymentvoucher.amount * 0.03).round(2) %></td>
+    </tr>
+    <tr>
+      <td>VAT (16%)</td>
+      <td class=""></td>
+      <td><%= (@paymentvoucher.amount * 0.16).round(2) %></td>
+    </tr>
+    <tr>
+      <td>WHT  VAT 06% </td>
+      <td class=""></td>
+      <td><%= (@paymentvoucher.amount * 0.06).round(2) %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="borderless">Total</td>
+      <td>What fields are being added?</td>
+    </tr>
+  </tbody>
+</table>
 
 <%= link_to 'Edit', edit_paymentvoucher_path(@paymentvoucher) %> |
 <%= link_to 'Back', paymentvouchers_path %>
+
+<p>Project Manager ............................................. Authorized Signature.................................</p>
+<p>Deputy Branch Manager ....................................... Authorized Signature.................................</p>
+<p>Program Manager ............................................. Authorized Signature.................................</p>
+<p>Country Director ............................................ Authorized Signature.................................</p>
+
+<style type="text/css">
+	.borderless{
+    border-left: none !important;
+</style>

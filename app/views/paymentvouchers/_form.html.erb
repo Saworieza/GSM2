@@ -12,28 +12,28 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :number %>
-    <%= form.text_field :number %>
-  </div>
-
-  <div class="field">
-    <%= form.label :amount %>
-    <%= form.text_field :amount %>
-  </div>
-
-  <div class="field">
     <%= form.label :date %>
     <%= form.date_select :date %>
   </div>
 
   <div class="field">
-    <%= form.label :site_id %>
-    <%= form.collection_select :site_id, Site.all, :id, :name %>
+    <%= form.label :payment_by %>
+    <%= form.text_field :payment_by %>
   </div>
 
   <div class="field">
-    <%= form.label :contractor_id %>
-    <%= form.collection_select :contractor_id, Contractor.all, :id, :name %>
+    <%= form.label :pin_no %>
+    <%= form.text_field :pin_no %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vat_no %>
+    <%= form.text_field :vat_no %>
+  </div>
+
+  <div class="field">
+    <%= form.label :number %>
+    <%= form.text_field :number %>
   </div>
 
   <div class="field">
@@ -41,16 +41,34 @@
     <%= form.collection_select :contractorinvoice_id, Contractorinvoice.all, :id, :number %>
   </div>
 
-   <div class="field">
-    <%= form.label :milestone_id %>
-    <%= form.collection_select :milestone_id, Milestone.all, :id, :phase %>
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.text_field :amount %>
+  </div>
+
+  
+
+  <!-- <div class="field">
+    <%#= form.label :site_id %>
+    <%#= form.collection_select :site_id, Site.all, :id, :name %>
+  </div>
+
+  <div class="field">
+    <%#= form.label :contractor_id %>
+    <%#= form.collection_select :contractor_id, Contractor.all, :id, :name %>
+  </div>
+
+  <div class="field">
+    <%#= form.label :milestone_id %>
+    <%#= form.collection_select :milestone_id, Milestone.all, :id, :phase %>
   </div>
 
    <div class="field">
-    <%= form.label :stage_id %>
-    <%= form.collection_select :stage_id, Stage.all, :id, :percentage %>
-  </div>
+    <%#= form.label :stage_id %>
+    <%#= form.collection_select :stage_id, Stage.all, :id, :percentage %>
+  </div> -->
 
+  
 
   <div class="actions">
     <%= form.submit %>

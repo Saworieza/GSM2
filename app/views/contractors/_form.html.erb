@@ -17,12 +17,12 @@
   </div>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :email %>
     <%= form.email_field :email %>
   </div>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :telephone %>
     <%= form.number_field :telephone %>
   </div>
 
@@ -36,13 +36,13 @@
     <%= form.collection_select :status_id, Status.all, :id, :state %>
   </div> 
 
-  <div class="field">
-    <%= form.label :site_id %>
-    <%= form.collection_select :site_id, Site.all, :id, :name %>
+  <!-- <div class="field">
+    <%#= form.label :site_id %>
+    <%#= form.collection_select :site_id, Site.all, :id, :name %>
     <%#= form.collection_select(:site_id, Site.all, :id, :name_with_initial, prompt: true) %>
     <%#= form.collection_select(:site_ids, Site.all, :id, :name,{}, {:multiple => true}) %>
     <%#= form.collection_select(:site_id, Site.all, :id, :name, {:prompt => "Please Select a site"}, {:multiple => true}) %>
-  </div> 
+  </div>  -->
 
   <div class="actions">
     <%= form.submit %>

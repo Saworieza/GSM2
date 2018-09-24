@@ -76,8 +76,6 @@ ActiveRecord::Schema.define(version: 2018_09_16_190630) do
     t.integer "status_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "site_id"
-    t.index ["site_id"], name: "index_contractors_on_site_id"
     t.index ["status_id"], name: "index_contractors_on_status_id"
   end
 
@@ -131,32 +129,6 @@ ActiveRecord::Schema.define(version: 2018_09_16_190630) do
     t.index ["site_id"], name: "index_customerquotes_on_site_id"
   end
 
-  create_table "impressions", force: :cascade do |t|
-    t.string "impressionable_type"
-    t.integer "impressionable_id"
-    t.integer "user_id"
-    t.string "controller_name"
-    t.string "action_name"
-    t.string "view_name"
-    t.string "request_hash"
-    t.string "ip_address"
-    t.string "session_hash"
-    t.text "message"
-    t.text "referrer"
-    t.text "params"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["controller_name", "action_name", "ip_address"], name: "controlleraction_ip_index"
-    t.index ["controller_name", "action_name", "request_hash"], name: "controlleraction_request_index"
-    t.index ["controller_name", "action_name", "session_hash"], name: "controlleraction_session_index"
-    t.index ["impressionable_type", "impressionable_id", "ip_address"], name: "poly_ip_index"
-    t.index ["impressionable_type", "impressionable_id", "params"], name: "poly_params_request_index"
-    t.index ["impressionable_type", "impressionable_id", "request_hash"], name: "poly_request_index"
-    t.index ["impressionable_type", "impressionable_id", "session_hash"], name: "poly_session_index"
-    t.index ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index"
-    t.index ["user_id"], name: "index_impressions_on_user_id"
-  end
-
   create_table "invoices", force: :cascade do |t|
     t.text "invoice_to"
     t.text "pin"
@@ -193,17 +165,14 @@ ActiveRecord::Schema.define(version: 2018_09_16_190630) do
     t.string "number"
     t.date "date"
     t.integer "amount"
-    t.integer "contractor_id"
-    t.integer "milestone_id"
-    t.integer "site_id"
+    t.string "payment_by"
+    t.string "vat_no"
+    t.string "pin_no"
     t.integer "contractorinvoice_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "stage_id"
-    t.index ["contractor_id"], name: "index_paymentvouchers_on_contractor_id"
     t.index ["contractorinvoice_id"], name: "index_paymentvouchers_on_contractorinvoice_id"
-    t.index ["milestone_id"], name: "index_paymentvouchers_on_milestone_id"
-    t.index ["site_id"], name: "index_paymentvouchers_on_site_id"
     t.index ["stage_id"], name: "index_paymentvouchers_on_stage_id"
   end
 

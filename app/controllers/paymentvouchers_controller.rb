@@ -70,6 +70,6 @@ class PaymentvouchersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def paymentvoucher_params
-      params.require(:paymentvoucher).permit(:number, :date, :amount, :milestone_id, :stage_id, :contractor_id, :site_id, :contractorinvoice_id)
+      params.require(:paymentvoucher).permit(:number, :date, :amount, :payment_by, :vat_no, :pin_no, :contractorinvoice_id)
     end
 end

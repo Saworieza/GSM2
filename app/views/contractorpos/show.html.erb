@@ -25,6 +25,11 @@
   <%= link_to @contractorpo.contractorquote.number, contractorquote_path(@contractorpo.contractorquote) %>
 </p>
 
+<p>
+  <strong>Site:</strong>
+  <%= link_to @contractorpo.contractorquote.site.name, site_path(@contractorpo.contractorquote.site) %>
+</p>
+
 <%= link_to 'Edit', edit_contractorpo_path(@contractorpo) %> |
 <%= link_to 'Back', contractorpos_path %>
 

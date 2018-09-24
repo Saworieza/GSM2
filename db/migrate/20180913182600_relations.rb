@@ -8,7 +8,6 @@ class Relations < ActiveRecord::Migration[5.2]
     add_reference :invoices, :stage, foreign_key: true
 
     add_reference :contractorinvoices, :contractor, foreign_key: true
-    # add_reference :contractorinvoices, :contractorquote, foreign_key: true
     add_reference :contractorinvoices, :stage, foreign_key: true
     add_reference :contractorinvoices, :contractorpo, foreign_key: true
     add_reference :contractorinvoices, :contractorquote, foreign_key: true
@@ -16,7 +15,7 @@ class Relations < ActiveRecord::Migration[5.2]
     add_reference :contractorquotes, :contractorpo, foreign_key: true
     add_reference :contractorquotes, :contractor, foreign_key: true
 
-    add_reference :contractors, :site, foreign_key: true
+    # add_reference :contractors, :site, foreign_key: true
 
     add_reference :paymentvouchers, :stage, foreign_key: true
   end

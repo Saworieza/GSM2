@@ -15,10 +15,10 @@
   <%= link_to @contractor.status.state, status_path(@contractor.status) %>
 </p>
 
-<p>
+<!-- <p>
   <strong>Site:</strong>
-  <%= link_to @contractor.site.name, site_path(@contractor.site) %>
-</p>
+  <%#= link_to @contractor.site.name, site_path(@contractor.site) %>
+</p> -->
 
 <!-- <table class="table table-striped">
   <thead>
@@ -43,9 +43,9 @@
   <thead>
     <tr>
       <th scope="col">#</th>
+      <th scope="col">Site</th>
       <th scope="col">Amount</th>
       <th scope="col">Date</th>
-      <th scope="col">Contractor</th>
       <th scope="col">Contractorpos</th>
       <th colspan="3"></th>
     </tr>
@@ -55,9 +55,9 @@
     <% @contractor.contracts.each do |contract| %>
       <tr>
         <td scope="row"><%= contract.id %></td>
-        <td><%= contract.amount %></td>
-        <td><%= contract.date %></td>
         <td><%= link_to contract.site.name, site_url(contract.site) %></td>
+        <td><%= contract.amount %></td>
+        <td><%= contract.date.strftime("%d %b, %Y") %></td>
         <td><%= link_to contract.contractorpo.number, contractorpo_url(contract.contractorpo) %></td>
         <td><%= link_to 'Show', contract %></td>
       </tr>

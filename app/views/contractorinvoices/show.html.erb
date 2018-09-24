@@ -91,7 +91,7 @@
             </tr>
             <tr>
               <td class="borderless"></td>
-              <td class="borderless">Withholding Tax Deduction 3% - <%= ((@contractorinvoice.contractorpo.amount * (@contractorinvoice.stage.percentage/100)).round(2) * 0.03).round(2) %></td>
+              <td class="borderless">Withholding Tax Deduction 3% - Ksh <%= ((@contractorinvoice.contractorpo.amount * (@contractorinvoice.stage.percentage/100)).round(2) * 0.03).round(2) %></td>
               <td class="borderless"></td>
               <td class="borderless"></td>
               <td>
@@ -104,7 +104,7 @@
             <tr>
               <td class="borderless"></td>
               <td class="borderless">
-                6% WHVAT  - <%= ((@contractorinvoice.contractorpo.amount * (@contractorinvoice.stage.percentage/100)).round(2) * 0.06).round(2) %>
+                6% WHVAT  - Ksh <%= ((@contractorinvoice.contractorpo.amount * (@contractorinvoice.stage.percentage/100)).round(2) * 0.06).round(2) %>
               </td>
               <td class="borderless"></td>
               <td class="borderless"></td>
@@ -135,7 +135,10 @@
   .borderless{
     border-left: none !important;
     border-right: none !important;
-    border-bottom: none !important;
+    border-bottom: 0 !important;
+    border-bottom-color: currentcolor !important;
+    border-bottom-style: none !important;
+    border-bottom-width: 0px !important;
   }
 </style>
 
