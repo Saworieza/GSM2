@@ -55,7 +55,7 @@
         This Invoice <%= link_to contractorinvoice.number,contractorinvoice %>
       </td>
       <td>1</td>
-      <td><%= @paymentvoucher.amount %><!-- in the meantime --></td>
+      <td><%= number_with_delimiter((contractorinvoice.contractorpo.amount * (contractorinvoice.stage.percentage/100)).round(2) + ((contractorinvoice.contractorpo.amount * (contractorinvoice.stage.percentage/100)).round(2) * 0.16).round(2), :delimiter => ',') %><%#= @contractorinvoice.amount %><!-- in the meantime --></td>
     </tr>
     <% end %>
     <!-- <tr>
@@ -71,22 +71,22 @@
         Sub - Total
       </td>
       <td class=""></td>
-      <td><%= @paymentvoucher.amount %></td>
+      <td><%= number_with_delimiter(@paymentvoucher.amount, :delimiter => ',') %></td>
     </tr>
     <tr>
       <td>WHT (05% / 03%)</td>
       <td class=""></td>
-      <td><%= (@paymentvoucher.amount * 0.03).round(2) %></td>
+      <td><%= number_with_delimiter((@paymentvoucher.amount * 0.03).round(2), :delimiter => ',') %></td>
     </tr>
     <tr>
       <td>VAT (16%)</td>
       <td class=""></td>
-      <td><%= (@paymentvoucher.amount * 0.16).round(2) %></td>
+      <td><%= number_with_delimiter((@paymentvoucher.amount * 0.16).round(2), :delimiter => ',') %></td>
     </tr>
     <tr>
       <td>WHT  VAT 06% </td>
       <td class=""></td>
-      <td><%= (@paymentvoucher.amount * 0.06).round(2) %></td>
+      <td><%= number_with_delimiter((@paymentvoucher.amount * 0.06).round(2), :delimiter => ',') %></td>
     </tr>
     <tr>
       <td></td>

@@ -21,7 +21,7 @@
         <td><%= link_to contractorinvoice.number, contractorinvoice %></td>
         <td><%= contractorinvoice.date.strftime("%d %b, %Y") %></td>
         <td><%= contractorinvoice.stage.percentage %></td>
-        <td><%= (contractorinvoice.contractorpo.amount / contractorinvoice.stage.percentage).round(2) %></td>
+        <td><%= number_with_delimiter((contractorinvoice.contractorpo.amount / contractorinvoice.stage.percentage).round(2), :delimiter => ',') %></td>
         <td><%= link_to 'Edit', edit_contractorinvoice_path(contractorinvoice) %></td>
         <td><%= link_to 'Destroy', contractorinvoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

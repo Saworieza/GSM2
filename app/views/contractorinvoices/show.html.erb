@@ -83,33 +83,33 @@
                 <%= @contractorinvoice.unit %>
               </td>
               <td>
-                <%= @contractorinvoice.contractorpo.amount %>
+                <%= number_with_delimiter(@contractorinvoice.contractorpo.amount, :delimiter => ',') %>
               </td>
               <td>
-                <%= (@contractorinvoice.contractorpo.amount * (@contractorinvoice.stage.percentage/100)).round(2) %>
+                <%= number_with_delimiter((@contractorinvoice.contractorpo.amount * (@contractorinvoice.stage.percentage/100)).round(2), :delimiter => ',') %>
               </td>
             </tr>
             <tr>
               <td class="borderless"></td>
-              <td class="borderless">Withholding Tax Deduction 3% - Ksh <%= ((@contractorinvoice.contractorpo.amount * (@contractorinvoice.stage.percentage/100)).round(2) * 0.03).round(2) %></td>
+              <td class="borderless">Withholding Tax Deduction 3% - Ksh <%= number_with_delimiter(((@contractorinvoice.contractorpo.amount * (@contractorinvoice.stage.percentage/100)).round(2) * 0.03).round(2), :delimiter => ',') %></td>
               <td class="borderless"></td>
               <td class="borderless"></td>
               <td>
                 Subtotal
               </td>
               <td>
-                <%= (@contractorinvoice.contractorpo.amount * (@contractorinvoice.stage.percentage/100)).round(2) %>
+                <%= number_with_delimiter((@contractorinvoice.contractorpo.amount * (@contractorinvoice.stage.percentage/100)).round(2), :delimiter => ',') %>
               </td>
             </tr>
             <tr>
               <td class="borderless"></td>
               <td class="borderless">
-                6% WHVAT  - Ksh <%= ((@contractorinvoice.contractorpo.amount * (@contractorinvoice.stage.percentage/100)).round(2) * 0.06).round(2) %>
+                6% WHVAT  - Ksh <%= number_with_delimiter(((@contractorinvoice.contractorpo.amount * (@contractorinvoice.stage.percentage/100)).round(2) * 0.06).round(2), :delimiter => ',') %>
               </td>
               <td class="borderless"></td>
               <td class="borderless"></td>
               <td>16% Tax</td>
-              <td><%= ((@contractorinvoice.contractorpo.amount * (@contractorinvoice.stage.percentage/100)).round(2) * 0.16).round(2) %></td>
+              <td><%= number_with_delimiter(((@contractorinvoice.contractorpo.amount * (@contractorinvoice.stage.percentage/100)).round(2) * 0.16).round(2), :delimiter => ',') %></td>
             </tr>
             <tr>
               <td class="borderless"></td>
@@ -117,7 +117,7 @@
               <td class="borderless"></td>
               <td class="borderless"></td>
               <td>Total</td>
-              <td><%= (@contractorinvoice.contractorpo.amount * (@contractorinvoice.stage.percentage/100)).round(2) + ((@contractorinvoice.contractorpo.amount * (@contractorinvoice.stage.percentage/100)).round(2) * 0.16).round(2) %></td>
+              <td><%= number_with_delimiter((@contractorinvoice.contractorpo.amount * (@contractorinvoice.stage.percentage/100)).round(2) + ((@contractorinvoice.contractorpo.amount * (@contractorinvoice.stage.percentage/100)).round(2) * 0.16).round(2), :delimiter => ',') %></td>
             </tr>
           </tbody>
         </table>
