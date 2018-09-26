@@ -3,6 +3,11 @@ create model from another model
 
 customerpo can have only one quote and one quote only has one customerpo
 
+
+payment voucher, checkboxes not editing - fix that
+add amount fiel for each invoice and save indepenently
+
+
 Add a table called project managers. link it to PVs. It has many pvs and pvs belong to it
 Add a table called branch managers. link it to PVs. It has many pvs and pvs belong to it
 Add a table called program managers. link it to PVs. It has many pvs and pvs belong to it

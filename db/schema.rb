@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_16_190630) do
+ActiveRecord::Schema.define(version: 2018_09_24_074237) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "name"
@@ -155,6 +155,15 @@ ActiveRecord::Schema.define(version: 2018_09_16_190630) do
     t.index ["status_id"], name: "index_invoices_on_status_id"
   end
 
+  create_table "invoicings", force: :cascade do |t|
+    t.integer "paymentvoucher_id"
+    t.integer "contractorinvoice_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contractorinvoice_id"], name: "index_invoicings_on_contractorinvoice_id"
+    t.index ["paymentvoucher_id"], name: "index_invoicings_on_paymentvoucher_id"
+  end
+
   create_table "milestones", force: :cascade do |t|
     t.string "phase"
     t.datetime "created_at", null: false
@@ -168,11 +177,9 @@ ActiveRecord::Schema.define(version: 2018_09_16_190630) do
     t.string "payment_by"
     t.string "vat_no"
     t.string "pin_no"
-    t.integer "contractorinvoice_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "stage_id"
-    t.index ["contractorinvoice_id"], name: "index_paymentvouchers_on_contractorinvoice_id"
     t.index ["stage_id"], name: "index_paymentvouchers_on_stage_id"
   end
 

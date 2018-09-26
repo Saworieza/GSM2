@@ -36,14 +36,23 @@
     <%= form.text_field :number %>
   </div>
 
-  <div class="field">
-    <%= form.label :contractorinvoice_id %>
-    <%= form.collection_select :contractorinvoice_id, Contractorinvoice.all, :id, :number %>
-  </div>
+  <!-- <div class="field">
+    <%#= form.label :contractorinvoice_id %>
+    <%#= form.collection_select :contractorinvoice_id, Contractorinvoice.all, :id, :number %>
+  </div> -->
+
+  <!-- <div class="field">
+    <%#= form.label :amount %>
+    <%#= form.text_field :amount %>
+  </div> -->
 
   <div class="field">
-    <%= form.label :amount %>
-    <%= form.text_field :amount %>
+    <%= hidden_field_tag "paymentvoucher[contractorinvoice_ids][]", nil %>
+    <% Contractorinvoice.all.each do |contractorinvoice| %>
+      <%= check_box_tag "paymentvoucher[contractorinvoice_ids][]", contractorinvoice.id, @paymentvoucher.contractorinvoice_ids.include?(contractorinvoice.id), id: dom_id(contractorinvoice) %>
+      <%= link_to (label_tag dom_id(contractorinvoice), contractorinvoice.number), contractorinvoice %>
+      <%= form.text_field :amount %><br>
+    <% end %>
   </div>
 
   

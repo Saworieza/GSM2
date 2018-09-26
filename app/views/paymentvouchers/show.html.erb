@@ -1,30 +1,36 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Number:</strong>
+  <strong>Number :</strong>
   <%= @paymentvoucher.number %>
 </p>
 
 <p>
-  <strong>Date:</strong>
+  <strong>Date :</strong>
   <%= @paymentvoucher.date %>
 </p>
 
 <p>
-  <strong>P.I.N:</strong>
+  <strong>P.I.N :</strong>
   <%= @paymentvoucher.pin_no %>
 </p>
 
 <p>
-  <strong>V.A.T:</strong>
+  <strong>V.A.T :</strong>
   <%= @paymentvoucher.vat_no %>
+</p>
+
+<p>
+  <strong>Payment By :</strong>
+  <%= @paymentvoucher.payment_by %>
 </p>
 
 <p>
 	1. Debit a/c<br>
   <strong>Payment to : </strong>
-  <%= link_to @paymentvoucher.contractorinvoice.contractor.name, contractor_url(@paymentvoucher.contractorinvoice.contractor)%>
+  <%#= link_to @paymentvoucher.contractorinvoice.contractor.name, contractor_url(@paymentvoucher.contractorinvoice.contractor)%>
 </p>
+
 
 
 
@@ -43,14 +49,23 @@
     </tr>
   </thead>
   <tbody>
+    <% @paymentvoucher.contractorinvoices.each do |contractorinvoice| %>
     <tr>
+      <td><%= contractorinvoice.description %><br>
+        This Invoice <%= link_to contractorinvoice.number,contractorinvoice %>
+      </td>
+      <td>1</td>
+      <td><%= @paymentvoucher.amount %><!-- in the meantime --></td>
+    </tr>
+    <% end %>
+    <!-- <tr>
       <td>
-        <%= link_to @paymentvoucher.contractorinvoice.description, contractor_path(@paymentvoucher.contractorinvoice)%><br>
-      	This Invoice <b><%= link_to @paymentvoucher.contractorinvoice.number, contractor_path(@paymentvoucher.contractorinvoice)%></b>
+        <%#= link_to @paymentvoucher.contractorinvoice.description, contractor_path(@paymentvoucher.contractorinvoice)%><br>
+      	This Invoice <b><%#= link_to @paymentvoucher.contractorinvoice.number, contractor_path(@paymentvoucher.contractorinvoice)%></b>
       </td>
       <td>	1</td>
-      <td><%= @paymentvoucher.amount %></td>
-    </tr>
+      <td><%#= @paymentvoucher.amount %></td>
+    </tr> -->
     <tr>
       <td>
         Sub - Total
