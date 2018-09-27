@@ -121,6 +121,7 @@
             </tr>
           </tbody>
         </table>
+        <p><b>To be Paid Ksh</b> <%= number_with_delimiter(((@contractorinvoice.contractorpo.amount * (@contractorinvoice.stage.percentage/100)).round(2) + ((@contractorinvoice.contractorpo.amount * (@contractorinvoice.stage.percentage/100)).round(2) * 0.16).round(2))-(((@contractorinvoice.contractorpo.amount * (@contractorinvoice.stage.percentage/100)).round(2) * 0.03).round(2)+((@contractorinvoice.contractorpo.amount * (@contractorinvoice.stage.percentage/100)).round(2) * 0.06)).round(2), :delimiter => ',') %></p>
       </div>
     </div>
   </div>

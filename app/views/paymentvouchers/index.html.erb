@@ -7,9 +7,9 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Number</th>
-      <th scope="col">Contractorinvoice</th>
-      <th scope="col">Contractor</th>
-      <th colspan="3"></th>
+      <!-- <th scope="col">Contractorinvoice</th>
+      <th scope="col">Contractor</th> -->
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -17,10 +17,9 @@
     <% @paymentvouchers.each do |paymentvoucher| %>
       <tr>
         <td scope="row"><%= paymentvoucher.id %></td>
-        <td><%= paymentvoucher.number %></td>
+        <td><%= link_to paymentvoucher.number, paymentvoucher %></td>
         <td><%#= link_to paymentvoucher.contractorinvoice.number, contractor_path(paymentvoucher.contractorinvoice) %></td>
         <td><%#= link_to paymentvoucher.contractorinvoice.contractor.name, contractor_path(paymentvoucher.contractorinvoice) %></td>
-        <td><%= link_to 'Show', paymentvoucher %></td>
         <td><%= link_to 'Edit', edit_paymentvoucher_path(paymentvoucher) %></td>
         <td><%= link_to 'Delete', paymentvoucher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
