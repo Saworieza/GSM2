@@ -135,13 +135,10 @@ ActiveRecord::Schema.define(version: 2018_09_24_074237) do
     t.string "number"
     t.string "unit"
     t.date "date"
-    t.integer "amount"
     t.text "description"
     t.integer "status_id"
-    t.integer "scope_id"
     t.integer "customerquote_id"
     t.integer "customerpo_id"
-    t.integer "site_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "milestone_id"
@@ -149,8 +146,6 @@ ActiveRecord::Schema.define(version: 2018_09_24_074237) do
     t.index ["customerpo_id"], name: "index_invoices_on_customerpo_id"
     t.index ["customerquote_id"], name: "index_invoices_on_customerquote_id"
     t.index ["milestone_id"], name: "index_invoices_on_milestone_id"
-    t.index ["scope_id"], name: "index_invoices_on_scope_id"
-    t.index ["site_id"], name: "index_invoices_on_site_id"
     t.index ["stage_id"], name: "index_invoices_on_stage_id"
     t.index ["status_id"], name: "index_invoices_on_status_id"
   end
