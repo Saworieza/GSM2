@@ -4,8 +4,10 @@ create model from another model
 customerpo can have only one quote and one quote only has one customerpo
 
 
+invoice table, remove site, amount, status, scope
+
 payment voucher, checkboxes not editing - fix that
-add amount fiel for each invoice and save indepenently
+add amount field for each invoice and save indepenently***
 
 
 Add a table called project managers. link it to PVs. It has many pvs and pvs belong to it
