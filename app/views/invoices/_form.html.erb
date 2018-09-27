@@ -12,23 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :pin %>
-    <%= form.text_field :pin %>
-  </div>
-
-  <div class="field">
     <%= form.label :invoice_to %>
     <%= form.text_area :invoice_to %>
   </div>
 
   <div class="field">
-    <%= form.label :unit %>
-    <%= form.text_field :unit %>
-  </div>
-
-  <div class="field">
-    <%= form.label :number %>
-    <%= form.text_field :number %>
+    <%= form.label :pin %>
+    <%= form.text_field :pin %>
   </div>
 
   <div class="field">
@@ -37,18 +27,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :site_id %>
-    <%= form.collection_select :site_id, Site.all, :id, :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :amount %>
-    <%= form.number_field :amount %>
-  </div>
-
-  <div class="field">
     <%= form.label :customerquote_id %>
     <%= form.collection_select :customerquote_id, Customerquote.all, :id, :name %>
+  </div>
+
+   <div class="field">
+    <%= form.label :number %>
+    <%= form.text_field :number %>
   </div>
 
   <div class="field">
@@ -57,14 +42,10 @@
   </div>
 
   <div class="field">
-    <%= form.label :status_id %>
-    <%= form.collection_select :status_id, Status.all, :id, :state %>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
   </div>
 
-  <div class="field">
-    <%= form.label :scope_id %>
-    <%= form.collection_select :scope_id, Scope.all, :id, :scope_type %>
-  </div>
 
   <div class="field">
     <%= form.label :milestone_id %>
@@ -77,9 +58,34 @@
   </div>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.label :unit %>
+    <%= form.text_field :unit %>
   </div>
+
+  <!-- <div class="field">
+    <%#= form.label :site_id %>
+    <%#= form.collection_select :site_id, Site.all, :id, :name %>
+  </div>
+
+  <div class="field">
+    <%#= form.label :amount %>
+    <%#= form.number_field :amount %>
+  </div>
+
+
+  <div class="field">
+    <%#= form.label :status_id %>
+    <%#= form.collection_select :status_id, Status.all, :id, :state %>
+  </div>
+
+  <div class="field">
+    <%#= form.label :scope_id %>
+    <%#= form.collection_select :scope_id, Scope.all, :id, :scope_type %>
+  </div> -->
+
+  
+
+  
 
   <div class="actions">
     <%= form.submit %>

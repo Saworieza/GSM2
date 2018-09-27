@@ -1,63 +1,142 @@
 <p id="notice"><%= notice %></p>
-<p>
-  <strong>Invoice To:</strong>
-  <%= @invoice.invoice_to %>
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <p class="float-right">
+        
+        
+      </p>
+      <h3>Invoice</h3>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="col-lg-8">
+          <p>
+            <strong>Invoice to:</strong><br>
+            <%= @invoice.invoice_to %>
+          </p>
+        </div>
+        <div class="col-lg-4">
+          <p>
+            <strong>Pin No:</strong><br>
+            <%= @invoice.pin %>
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <p class="col-lg-6"></p>
+        <p class="col-lg-6">
+          <strong>Date :</strong>
+          <%= @invoice.date.strftime("%d %b, %Y") %>
+          <br>
+          <strong>Quotation No:</strong>
+          <%= link_to @invoice.customerquote.name, customerquote_url(@invoice.customerquote) %>
+          <br>
+          <strong>Invoice Number:</strong>
+          <%= @invoice.number %>
+          <br>
+          <strong>Ref: LPO No</strong>
+          <%= link_to @invoice.customerpo.number, customerpo_url(@invoice.customerpo) %>
+        </p>
+      </div>
 
-<p>
-  <strong>Pin:</strong>
-  <%= @invoice.pin %>
-</p>
-
-<p>
-  <strong>Unit:</strong>
-  <%= @invoice.unit %>
-</p>
-
-<p>
-  <strong>Number:</strong>
-  <%= @invoice.number %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @invoice.date.strftime("%d %b, %Y") %>
-</p>
-<p>
-  <strong>Site:</strong>
-  <%= link_to @invoice.site.name, site_url(@invoice.site) %>
-</p>
-
-<p>
-  <strong>Amount:</strong>
-  <%= @invoice.amount %>
-</p>
-
-<p>
-  <strong>Customer PO:</strong>
-  <%= link_to @invoice.customerpo.number , customerpo_url(@invoice.customerpo) %>
-</p>
-
-<p>
-  <strong>Purchase Order Amount:</strong>
-  <%= @invoice.customerpo.amount %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= link_to @invoice.status.state, status_url(@invoice.status) %>
-</p>
-
-<p>
-  <strong>Scope:</strong>
-  <%= link_to @invoice.scope.scope_type, scope_url(@invoice.scope) %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @invoice.description %>
-</p>
+      <div class="col-lg-12">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>
+                Item
+              </th>
+              <th>
+                Description
+              </th>
+              <th>
+                Value
+              </th>
+              <th>
+                Unit
+              </th>
+              <th>
+                Purchase Order Amount
+              </th>
+              <th>
+                Amount
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                1
+              </td>
+              <td>
+                <%= @invoice.description %>
+              </td>
+              <td>
+                <%= @invoice.stage.percentage %>
+              </td>
+              <td>
+                <%= @invoice.unit %>
+              </td>
+              <td>
+                <%= number_with_delimiter(@invoice.customerpo.amount, :delimiter => ',') %>
+              </td>
+              <td>
+                <%= number_with_delimiter((@invoice.customerpo.amount * (@invoice.stage.percentage/100)).round(2), :delimiter => ',') %>
+              </td>
+            </tr>
+            <tr>
+              <td class="borderless"></td>
+              <td class="borderless">Withholding Tax Deduction 3% - Ksh <%= number_with_delimiter(((@invoice.customerpo.amount * (@invoice.stage.percentage/100)).round(2) * 0.03).round(2), :delimiter => ',') %></td>
+              <td class="borderless"></td>
+              <td class="borderless"></td>
+              <td>
+                Subtotal
+              </td>
+              <td>
+                <%= number_with_delimiter((@invoice.customerpo.amount * (@invoice.stage.percentage/100)).round(2), :delimiter => ',') %>
+              </td>
+            </tr>
+            <tr>
+              <td class="borderless"></td>
+              <td class="borderless">
+                6% WHVAT  - Ksh <%= number_with_delimiter(((@invoice.customerpo.amount * (@invoice.stage.percentage/100)).round(2) * 0.06).round(2), :delimiter => ',') %>
+              </td>
+              <td class="borderless"></td>
+              <td class="borderless"></td>
+              <td>16% Tax</td>
+              <td><%= number_with_delimiter(((@invoice.customerpo.amount * (@invoice.stage.percentage/100)).round(2) * 0.16).round(2), :delimiter => ',') %></td>
+            </tr>
+            <tr>
+              <td class="borderless"></td>
+              <td class="borderless"></td>
+              <td class="borderless"></td>
+              <td class="borderless"></td>
+              <td>Total</td>
+              <td><%= number_with_delimiter((@invoice.customerpo.amount * (@invoice.stage.percentage/100)).round(2) + ((@invoice.customerpo.amount * (@invoice.stage.percentage/100)).round(2) * 0.16).round(2), :delimiter => ',') %></td>
+            </tr>
+          </tbody>
+        </table>
+        <p><b>To be Paid Ksh</b> <%= number_with_delimiter(((@invoice.customerpo.amount * (@invoice.stage.percentage/100)).round(2) + ((@invoice.customerpo.amount * (@invoice.stage.percentage/100)).round(2) * 0.16).round(2))-(((@invoice.customerpo.amount * (@invoice.stage.percentage/100)).round(2) * 0.03).round(2)+((@invoice.customerpo.amount * (@invoice.stage.percentage/100)).round(2) * 0.06)).round(2), :delimiter => ',') %></p>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <%= link_to 'Edit', edit_invoice_path(@invoice) %> |
-<%= link_to 'Back', :back %>
+<%= link_to 'Back', invoices_path %>
+
+
+<style type="text/css">
+  .borderless{
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: 0 !important;
+    border-bottom-color: currentcolor !important;
+    border-bottom-style: none !important;
+    border-bottom-width: 0px !important;
+  }
+</style>
+
