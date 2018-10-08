@@ -1,4 +1,5 @@
 class TownsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_town, only: [:show, :edit, :update, :destroy]
   # impressionist
 

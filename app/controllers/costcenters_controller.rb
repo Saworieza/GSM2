@@ -1,4 +1,5 @@
 class CostcentersController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_costcenter, only: [:show, :edit, :update, :destroy]
   # impressionist
 

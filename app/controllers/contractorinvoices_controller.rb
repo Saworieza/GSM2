@@ -1,4 +1,5 @@
 class ContractorinvoicesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_contractorinvoice, only: [:show, :edit, :update, :destroy]
   # impressionist
 

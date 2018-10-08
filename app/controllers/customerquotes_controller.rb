@@ -1,4 +1,5 @@
 class CustomerquotesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_customerquote, only: [:show, :edit, :update, :destroy]
   # impressionist
 

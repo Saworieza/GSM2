@@ -1,4 +1,5 @@
 class ScopesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_scope, only: [:show, :edit, :update, :destroy]
   # impressionist
 

@@ -1,4 +1,5 @@
 class StagesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_stage, only: [:show, :edit, :update, :destroy]
   # impressionist
 
