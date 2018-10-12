@@ -17,7 +17,8 @@ class AccountsController < ApplicationController
 
   # GET /accounts/new
   def new
-    @account = Account.new
+    @account = current_user.accounts.build
+    # @account = Account.new
   end
 
   # GET /accounts/1/edit
@@ -27,7 +28,8 @@ class AccountsController < ApplicationController
   # POST /accounts
   # POST /accounts.json
   def create
-    @account = Account.new(account_params)
+    @account = current_user.accounts.build(account_params)
+    # @account = Account.new(account_params)
 
     respond_to do |format|
       if @account.save
@@ -72,6 +74,6 @@ class AccountsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def account_params
-      params.require(:account).permit(:name, :description)
+      params.require(:account).permit(:name, :description, :user_id)
     end
 end

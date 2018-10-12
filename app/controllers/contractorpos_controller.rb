@@ -16,7 +16,8 @@ class ContractorposController < ApplicationController
 
   # GET /contractorpos/new
   def new
-    @contractorpo = Contractorpo.new
+    @contractorpo = current_user.contractorpos.build
+    # @contractorpo = Contractorpo.new
   end
 
   # GET /contractorpos/1/edit
@@ -26,7 +27,8 @@ class ContractorposController < ApplicationController
   # POST /contractorpos
   # POST /contractorpos.json
   def create
-    @contractorpo = Contractorpo.new(contractorpo_params)
+    @contractorpo = current_user.contractorpos.build(contractorpo_params)
+    # @contractorpo = Contractorpo.new(contractorpo_params)
 
     respond_to do |format|
       if @contractorpo.save
@@ -71,6 +73,6 @@ class ContractorposController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contractorpo_params
-      params.require(:contractorpo).permit(:number, :date, :amount, :description, :contractorquote_id)
+      params.require(:contractorpo).permit(:number, :date, :amount, :description, :contractorquote_id, :user_id)
     end
 end

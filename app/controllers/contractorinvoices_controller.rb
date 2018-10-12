@@ -16,7 +16,8 @@ class ContractorinvoicesController < ApplicationController
 
   # GET /contractorinvoices/new
   def new
-    @contractorinvoice = Contractorinvoice.new
+    # @contractorinvoice = Contractorinvoice.new
+    @contractorinvoice = current_user.contractorinvoices.build
   end
 
   # GET /contractorinvoices/1/edit
@@ -26,7 +27,8 @@ class ContractorinvoicesController < ApplicationController
   # POST /contractorinvoices
   # POST /contractorinvoices.json
   def create
-    @contractorinvoice = Contractorinvoice.new(contractorinvoice_params)
+    @contractorinvoice = current_user.contractorinvoices.build(contractorinvoice_params)
+    # @contractorinvoice = Contractorinvoice.new(contractorinvoice_params)
 
     respond_to do |format|
       if @contractorinvoice.save
@@ -71,6 +73,6 @@ class ContractorinvoicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contractorinvoice_params
-      params.require(:contractorinvoice).permit(:invoice_to, :pin, :description, :number, :date, :unit, :milestone_id, :stage_id, :contractor_id, :contractorquote_id, :contractorpo_id)
+      params.require(:contractorinvoice).permit(:invoice_to, :pin, :description, :number, :date, :unit, :milestone_id, :stage_id, :contractor_id, :contractorquote_id, :contractorpo_id, :user_id)
     end
 end

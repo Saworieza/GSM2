@@ -7,6 +7,8 @@ class Contractorinvoice < ApplicationRecord
   belongs_to :contractorquote
   belongs_to :contractorpo
 
+  belongs_to :user
+
   has_many :invoicings
 	has_many :paymentvouchers, through: :invoicings
 

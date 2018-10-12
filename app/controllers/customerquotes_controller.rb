@@ -16,7 +16,8 @@ class CustomerquotesController < ApplicationController
 
   # GET /customerquotes/new
   def new
-    @customerquote = Customerquote.new
+    @customerquote = current_user.customerquotes.build
+    # @customerquote = Customerquote.new
   end
 
   # GET /customerquotes/1/edit
@@ -26,7 +27,8 @@ class CustomerquotesController < ApplicationController
   # POST /customerquotes
   # POST /customerquotes.json
   def create
-    @customerquote = Customerquote.new(customerquote_params)
+    @customerquote = current_user.customerquotes.build(customerquote_params)
+    # @customerquote = Customerquote.new(customerquote_params)
 
     respond_to do |format|
       if @customerquote.save
@@ -71,6 +73,6 @@ class CustomerquotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customerquote_params
-      params.require(:customerquote).permit(:name, :date, :amount, :costcenter_id, :site_id, :scope_id)
+      params.require(:customerquote).permit(:name, :date, :amount, :costcenter_id, :site_id, :scope_id, :user_id)
     end
 end

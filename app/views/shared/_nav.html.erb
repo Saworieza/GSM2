@@ -1,3 +1,4 @@
+<% if user_signed_in? %>
 <nav>
   <%= link_to 'Home', root_path %> | 
   <%= link_to 'SDs', costcenters_path %> | 
@@ -15,7 +16,10 @@
   <%= link_to 'Contractor POs', contractorpos_path %> |
   <%= link_to 'Contracts', contracts_path %> |
   <%= link_to 'Contractor Invoices', contractorinvoices_path %> |
-  <%= link_to 'Pay Vouchers', paymentvouchers_path %> 
+  <%= link_to 'Pay Vouchers', paymentvouchers_path %>
+    logged in as: <%= link_to current_user.email, edit_user_registration_path %>
+    <%= link_to "Log out", destroy_user_session_path, :method => 'delete' %>
+<% end %> 
 </nav>
 
 

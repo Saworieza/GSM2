@@ -1,5 +1,7 @@
 class Scope < ApplicationRecord
 	# is_impressionable
+	belongs_to :user
+	
 	has_many :sites
 	has_many :customerpos
 	has_many :customerquotes

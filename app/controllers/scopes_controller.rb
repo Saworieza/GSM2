@@ -16,7 +16,8 @@ class ScopesController < ApplicationController
 
   # GET /scopes/new
   def new
-    @scope = Scope.new
+    @scope = current_user.scopes.build
+    # @scope = Scope.new
   end
 
   # GET /scopes/1/edit
@@ -26,7 +27,8 @@ class ScopesController < ApplicationController
   # POST /scopes
   # POST /scopes.json
   def create
-    @scope = Scope.new(scope_params)
+    @scope = current_user.scopes.build
+    # @scope = Scope.new(scope_params)
 
     respond_to do |format|
       if @scope.save
@@ -71,6 +73,6 @@ class ScopesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def scope_params
-      params.require(:scope).permit(:scope_type)
+      params.require(:scope).permit(:scope_type, :user_id)
     end
 end

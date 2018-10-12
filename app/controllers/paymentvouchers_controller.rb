@@ -16,7 +16,8 @@ class PaymentvouchersController < ApplicationController
 
   # GET /paymentvouchers/new
   def new
-    @paymentvoucher = Paymentvoucher.new
+    @paymentvoucher = current_user.paymentvouchers.build
+    # @paymentvoucher = Paymentvoucher.new
   end
 
   # GET /paymentvouchers/1/edit
@@ -26,7 +27,8 @@ class PaymentvouchersController < ApplicationController
   # POST /paymentvouchers
   # POST /paymentvouchers.json
   def create
-    @paymentvoucher = Paymentvoucher.new(paymentvoucher_params)
+    @paymentvoucher = current_user.paymentvouchers.build(paymentvoucher_params)
+    # @paymentvoucher = Paymentvoucher.new(paymentvoucher_params)
 
     respond_to do |format|
       if @paymentvoucher.save
@@ -71,6 +73,6 @@ class PaymentvouchersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def paymentvoucher_params
-      params.require(:paymentvoucher).permit(:number, :date, :amount, :payment_by, :vat_no, :pin_no )#, :contractorinvoice_id)
+      params.require(:paymentvoucher).permit(:number, :date, :amount, :payment_by, :vat_no, :pin_no, :user_id, :contractorinvoice_id)
     end
 end

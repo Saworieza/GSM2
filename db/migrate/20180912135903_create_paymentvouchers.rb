@@ -8,7 +8,7 @@ class CreatePaymentvouchers < ActiveRecord::Migration[5.2]
       t.string :vat_no
       t.string :pin_no
 
-      # t.belongs_to :contractorinvoice, foreign_key: true
+      t.belongs_to :contractorinvoice, foreign_key: true
 
       t.timestamps
     end

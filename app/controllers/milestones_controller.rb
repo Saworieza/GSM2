@@ -16,7 +16,8 @@ class MilestonesController < ApplicationController
 
   # GET /milestones/new
   def new
-    @milestone = Milestone.new
+    @milestone = current_user.milestones.build
+    # @milestone = Milestone.new
   end
 
   # GET /milestones/1/edit
@@ -26,7 +27,8 @@ class MilestonesController < ApplicationController
   # POST /milestones
   # POST /milestones.json
   def create
-    @milestone = Milestone.new(milestone_params)
+    @milestone = current_user.milestones.build(milestone_params)
+    # @milestone = Milestone.new(milestone_params)
 
     respond_to do |format|
       if @milestone.save
@@ -71,6 +73,6 @@ class MilestonesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def milestone_params
-      params.require(:milestone).permit(:phase, stages_attributes: [:id, :percentage, :_destroy])
+      params.require(:milestone).permit(:phase, :user_id, stages_attributes: [:id, :percentage, :_destroy])
     end
 end

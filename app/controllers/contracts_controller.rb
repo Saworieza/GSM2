@@ -15,7 +15,8 @@ class ContractsController < ApplicationController
 
   # GET /contracts/new
   def new
-    @contract = Contract.new
+    # @contract = Contract.new
+    @contract = current_user.contracts.build
   end
 
   # GET /contracts/1/edit
@@ -25,7 +26,8 @@ class ContractsController < ApplicationController
   # POST /contracts
   # POST /contracts.json
   def create
-    @contract = Contract.new(contract_params)
+    @contract = current_user.contracts.build(contract_params)
+    # @contract = Contract.new(contract_params)
 
     respond_to do |format|
       if @contract.save
@@ -70,6 +72,6 @@ class ContractsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contract_params
-      params.require(:contract).permit(:amount, :date, :contractor_id, :site_id, :contractorpo_id)
+      params.require(:contract).permit(:amount, :date, :contractor_id, :site_id, :contractorpo_id, :user_id)
     end
 end

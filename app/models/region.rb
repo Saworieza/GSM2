@@ -1,5 +1,7 @@
 class Region < ApplicationRecord
 	# is_impressionable
+	belongs_to :user
+	
 	has_many :towns
 	has_many :sites
 

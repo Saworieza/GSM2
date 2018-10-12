@@ -16,7 +16,8 @@ class CostcentersController < ApplicationController
 
   # GET /costcenters/new
   def new
-    @costcenter = Costcenter.new
+    @costcenter = current_user.costcenters.build
+    # @costcenter = Costcenter.new
   end
 
   # GET /costcenters/1/edit
@@ -26,7 +27,8 @@ class CostcentersController < ApplicationController
   # POST /costcenters
   # POST /costcenters.json
   def create
-    @costcenter = Costcenter.new(costcenter_params)
+    @costcenter = current_user.costcenters.build(costcenter_params)
+    # @costcenter = Costcenter.new(costcenter_params)
 
     respond_to do |format|
       if @costcenter.save
@@ -71,6 +73,6 @@ class CostcentersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def costcenter_params
-      params.require(:costcenter).permit(:number, :details, :account_id)
+      params.require(:costcenter).permit(:number, :details, :account_id, :user_id)
     end
 end

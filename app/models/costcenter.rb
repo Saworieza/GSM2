@@ -1,6 +1,7 @@
 class Costcenter < ApplicationRecord
 	# is_impressionable
   belongs_to :account
+  belongs_to :user
 
   has_many :customerquotes
 

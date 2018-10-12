@@ -4,6 +4,7 @@ class Site < ApplicationRecord
   belongs_to :scope
   belongs_to :town
   belongs_to :region
+  belongs_to :user
     
 
   has_many :customerpo

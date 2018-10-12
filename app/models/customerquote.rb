@@ -3,6 +3,7 @@ class Customerquote < ApplicationRecord
   belongs_to :costcenter
   belongs_to :site
   belongs_to :scope
+  belongs_to :user
 
   has_many :customerpos
   has_many :invoices

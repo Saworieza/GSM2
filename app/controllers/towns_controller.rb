@@ -16,7 +16,8 @@ class TownsController < ApplicationController
 
   # GET /towns/new
   def new
-    @town = Town.new
+    @town = current_user.towns.build
+    # @town = Town.new
   end
 
   # GET /towns/1/edit
@@ -26,7 +27,8 @@ class TownsController < ApplicationController
   # POST /towns
   # POST /towns.json
   def create
-    @town = Town.new(town_params)
+    @town = current_user.towns.build(town_params)
+    # @town = Town.new(town_params)
 
     respond_to do |format|
       if @town.save
@@ -71,6 +73,6 @@ class TownsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def town_params
-      params.require(:town).permit(:name, :classification, :region_id)
+      params.require(:town).permit(:name, :classification, :region_id, :user_id)
     end
 end

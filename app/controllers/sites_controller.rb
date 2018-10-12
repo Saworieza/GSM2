@@ -16,7 +16,8 @@ class SitesController < ApplicationController
 
   # GET /sites/new
   def new
-    @site = Site.new
+     @site = current_user.sites.build
+    # @site = Site.new
   end
 
   # GET /sites/1/edit
@@ -26,7 +27,8 @@ class SitesController < ApplicationController
   # POST /sites
   # POST /sites.json
   def create
-    @site = Site.new(site_params)
+    @site = current_user.sites.build(site_params)
+    # @site = Site.new(site_params)
 
     respond_to do |format|
       if @site.save
@@ -71,6 +73,6 @@ class SitesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def site_params
-      params.require(:site).permit(:name, :number, :tower_height, :status_id, :scope_id, :town_id, :region_id) #, :customerpo_id, :customerquote_id,
+      params.require(:site).permit(:name, :number, :tower_height, :status_id, :scope_id, :town_id, :region_id, :user_id) #, :customerpo_id, :customerquote_id,
     end
 end

@@ -16,7 +16,8 @@ class CustomerposController < ApplicationController
 
   # GET /customerpos/new
   def new
-    @customerpo = Customerpo.new
+    @customerpo = current_user.customerpos.build
+    # @customerpo = Customerpo.new
   end
 
   # GET /customerpos/1/edit
@@ -26,7 +27,8 @@ class CustomerposController < ApplicationController
   # POST /customerpos
   # POST /customerpos.json
   def create
-    @customerpo = Customerpo.new(customerpo_params)
+    @customerpo = current_user.customerpos.build(customerpo_params)
+    # @customerpo = Customerpo.new(customerpo_params)
 
     respond_to do |format|
       if @customerpo.save
@@ -71,6 +73,6 @@ class CustomerposController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customerpo_params
-      params.require(:customerpo).permit(:number, :date, :amount, :customerquote_id, :scope_id, :site_id)
+      params.require(:customerpo).permit(:number, :date, :amount, :customerquote_id, :scope_id, :site_id, :user_id)
     end
 end

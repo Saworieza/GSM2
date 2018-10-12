@@ -16,7 +16,8 @@ class InvoicesController < ApplicationController
 
   # GET /invoices/new
   def new
-    @invoice = Invoice.new
+    @invoice = current_user.invoices.build
+    # @invoice = Invoice.new
   end
 
   # GET /invoices/1/edit
@@ -26,7 +27,8 @@ class InvoicesController < ApplicationController
   # POST /invoices
   # POST /invoices.json
   def create
-    @invoice = Invoice.new(invoice_params)
+    @invoice = current_user.invoices.build(invoice_params)
+    # @invoice = Invoice.new(invoice_params)
 
     respond_to do |format|
       if @invoice.save
@@ -71,6 +73,6 @@ class InvoicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def invoice_params
-      params.require(:invoice).permit(:invoice_to, :pin, :number, :date, :amount, :description, :status_id, :scope_id, :customerpo_id, :customerquote_id, :site_id, :milestone_id, :stage_id)
+      params.require(:invoice).permit(:invoice_to, :pin, :number, :date, :amount, :description, :status_id, :scope_id, :customerpo_id, :customerquote_id, :site_id, :milestone_id, :stage_id, :user_id)
     end
 end

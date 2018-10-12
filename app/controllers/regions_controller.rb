@@ -16,7 +16,8 @@ class RegionsController < ApplicationController
 
   # GET /regions/new
   def new
-    @region = Region.new
+    @region = current_user.regions.build
+    # @region = Region.new
   end
 
   # GET /regions/1/edit
@@ -26,7 +27,8 @@ class RegionsController < ApplicationController
   # POST /regions
   # POST /regions.json
   def create
-    @region = Region.new(region_params)
+    @region = current_user.regions.build(region_params)
+    # @region = Region.new(region_params)
 
     respond_to do |format|
       if @region.save
@@ -71,6 +73,6 @@ class RegionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def region_params
-      params.require(:region).permit(:name)
+      params.require(:region).permit(:name, :user_id)
     end
 end

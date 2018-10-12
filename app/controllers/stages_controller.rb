@@ -16,7 +16,8 @@ class StagesController < ApplicationController
 
   # GET /stages/new
   def new
-    @stage = Stage.new
+    @stage = current_user.stages.build
+    # @stage = Stage.new
   end
 
   # GET /stages/1/edit
@@ -26,7 +27,8 @@ class StagesController < ApplicationController
   # POST /stages
   # POST /stages.json
   def create
-    @stage = Stage.new(stage_params)
+    @stage = current_user.stages.build(stage_params)
+    # @stage = Stage.new(stage_params)
 
     respond_to do |format|
       if @stage.save
@@ -71,6 +73,6 @@ class StagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stage_params
-      params.require(:stage).permit(:percentage, :milestone_id)
+      params.require(:stage).permit(:percentage, :milestone_id, :user_id)
     end
 end

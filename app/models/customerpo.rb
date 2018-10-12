@@ -4,6 +4,7 @@ class Customerpo < ApplicationRecord
   belongs_to :scope
 
   belongs_to :site
+  belongs_to :user
 
   has_many :contractorquotes
   

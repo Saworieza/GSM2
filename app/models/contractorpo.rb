@@ -1,6 +1,7 @@
 class Contractorpo < ApplicationRecord
 	# is_impressionable
   belongs_to :contractorquote
+  belongs_to :user
 
   has_many :contractorinvoices
 
