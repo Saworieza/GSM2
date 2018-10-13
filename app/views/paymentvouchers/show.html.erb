@@ -55,7 +55,8 @@
         This Invoice <%= link_to contractorinvoice.number,contractorinvoice %>
       </td>
       <td>1</td>
-      <td><%= number_with_delimiter((contractorinvoice.contractorpo.amount * (contractorinvoice.stage.percentage/100)).round(2) + ((contractorinvoice.contractorpo.amount * (contractorinvoice.stage.percentage/100)).round(2) * 0.16).round(2), :delimiter => ',') %><%#= @contractorinvoice.amount %><!-- in the meantime --></td>
+      <td>
+        <%#= number_with_delimiter((contractorinvoice.contractorpo.amount * (contractorinvoice.stage.percentage/100)).round(2) + ((contractorinvoice.contractorpo.amount * (contractorinvoice.stage.percentage/100)).round(2) * 0.16).round(2), :delimiter => ',') %></td>
     </tr>
     <% end %>
     <!-- <tr>

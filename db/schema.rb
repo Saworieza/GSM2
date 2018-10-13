@@ -194,12 +194,10 @@ ActiveRecord::Schema.define(version: 2018_10_08_060001) do
     t.string "payment_by"
     t.string "vat_no"
     t.string "pin_no"
-    t.integer "contractorinvoice_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "stage_id"
     t.integer "user_id"
-    t.index ["contractorinvoice_id"], name: "index_paymentvouchers_on_contractorinvoice_id"
     t.index ["stage_id"], name: "index_paymentvouchers_on_stage_id"
     t.index ["user_id"], name: "index_paymentvouchers_on_user_id"
   end

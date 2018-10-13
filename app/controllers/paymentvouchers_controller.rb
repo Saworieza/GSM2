@@ -28,7 +28,13 @@ class PaymentvouchersController < ApplicationController
   # POST /paymentvouchers.json
   def create
     @paymentvoucher = current_user.paymentvouchers.build(paymentvoucher_params)
-    # @paymentvoucher = Paymentvoucher.new(paymentvoucher_params)
+
+    amount=0
+    params[:invoices].each do |invoice|
+      @paymentvoucher.contractorinvoices << (Contractorinvoice.find_by(id: invoice.first.to_i))
+      amount = amount + invoice.last[:amount].to_i
+    end
+    @paymentvoucher.amount = amount
 
     respond_to do |format|
       if @paymentvoucher.save
@@ -73,6 +79,6 @@ class PaymentvouchersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def paymentvoucher_params
-      params.require(:paymentvoucher).permit(:number, :date, :amount, :payment_by, :vat_no, :pin_no, :user_id, :contractorinvoice_id)
+      params.require(:paymentvoucher).permit(:number, :date, :amount, :payment_by, :vat_no, :pin_no, :user_id)#, :contractorinvoice_id)
     end
 end

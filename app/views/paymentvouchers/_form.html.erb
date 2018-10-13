@@ -36,48 +36,24 @@
     <%= form.text_field :number %>
   </div>
 
-  <!-- <div class="field">
-    <%#= form.label :contractorinvoice_id %>
-    <%#= form.collection_select :contractorinvoice_id, Contractorinvoice.all, :id, :number %>
-  </div> -->
-
-  <!-- <div class="field">
-    <%#= form.label :amount %>
-    <%#= form.text_field :amount %>
-  </div> -->
-
   <div class="field">
     <%= hidden_field_tag "paymentvoucher[contractorinvoice_ids][]", nil %>
     <% Contractorinvoice.all.each do |contractorinvoice| %>
-      <%= check_box_tag "paymentvoucher[contractorinvoice_ids][]", contractorinvoice.id, @paymentvoucher.contractorinvoice_ids.include?(contractorinvoice.id), id: dom_id(contractorinvoice) %>
-      <%= link_to (label_tag dom_id(contractorinvoice), contractorinvoice.number), contractorinvoice %>
-      <%= form.text_field :amount %><br>
+      <%= fields_for 'invoices[]', contractorinvoice do |i| %>
+        <div class="field">
+          <%= check_box_tag "", contractorinvoice.id, @paymentvoucher.contractorinvoice_ids.include?(contractorinvoice.id), id: dom_id(contractorinvoice) %>
+          <%= link_to (label_tag dom_id(contractorinvoice), contractorinvoice.number), contractorinvoice %>
+        </div>
+        <div class="field">
+          <%= i.label :amount %><br>
+          <%= i.text_field :amount %>
+        </div>
+      <% end %>    
+      <%#= check_box_tag "paymentvoucher[contractorinvoice_ids][]", contractorinvoice.id, @paymentvoucher.contractorinvoice_ids.include?(contractorinvoice.id), id: dom_id(contractorinvoice) %>
+      <%#= link_to (label_tag dom_id(contractorinvoice), contractorinvoice.number), contractorinvoice %>
+      <%#= form.text_field :amount %><br>
     <% end %>
   </div>
-
-  
-
-  <!-- <div class="field">
-    <%#= form.label :site_id %>
-    <%#= form.collection_select :site_id, Site.all, :id, :name %>
-  </div>
-
-  <div class="field">
-    <%#= form.label :contractor_id %>
-    <%#= form.collection_select :contractor_id, Contractor.all, :id, :name %>
-  </div>
-
-  <div class="field">
-    <%#= form.label :milestone_id %>
-    <%#= form.collection_select :milestone_id, Milestone.all, :id, :phase %>
-  </div>
-
-   <div class="field">
-    <%#= form.label :stage_id %>
-    <%#= form.collection_select :stage_id, Stage.all, :id, :percentage %>
-  </div> -->
-
-  
 
   <div class="actions">
     <%= form.submit %>
