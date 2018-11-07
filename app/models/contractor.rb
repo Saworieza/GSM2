@@ -6,6 +6,7 @@ class Contractor < ApplicationRecord
 
   has_many :contractorquotes
   has_many :contracts
+  has_many :contractorinvoices
 
   belongs_to :user
 

@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  get 'payment_form/:id' => 'payments#payment_form', as: 'payment_form'
+
   devise_for :users
+  resources :payments
   resources :contracts
   resources :stages
-  resources :paymentvouchers
   resources :contractorinvoices
   resources :contractorpos
   resources :contractorquotes

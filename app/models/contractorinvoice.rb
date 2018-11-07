@@ -18,4 +18,6 @@ class Contractorinvoice < ApplicationRecord
 	def amount
 	  # @amount = contractorinvoice.contractorpo.amount / contractorinvoice.stage.percentage)
 	end
+
+  scope :unpaid, -> { where(paid: false)}
 end

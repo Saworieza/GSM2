@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  contractor: one
+  amount: 1
+  contractorinvoice_ids: MyString
+
+two:
+  contractor: two
+  amount: 1
+  contractorinvoice_ids: MyString

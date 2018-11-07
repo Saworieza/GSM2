@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th scope="col">#</th>
+      <th scope="col">Contractor</th>
       <th scope="col">Number</th>
       <th scope="col">Date</th>
       <th scope="col">Value</th>
@@ -18,6 +19,7 @@
     <% @contractorinvoices.each do |contractorinvoice| %>
       <tr>
         <td scope="row"><%= contractorinvoice.id %></td>
+        <td><%= link_to contractorinvoice.contractor.name %></td>
         <td><%= link_to contractorinvoice.number, contractorinvoice %></td>
         <td><%= contractorinvoice.date.strftime("%d %b, %Y") %></td>
         <td><%= contractorinvoice.stage.percentage %></td>

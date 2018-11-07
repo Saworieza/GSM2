@@ -1,0 +1,6 @@
+<% @contractor.each do |contractor| %>
+	Name <b><%= contractor.name %></b><br>
+	No of Unpaid Invoices 
+	<%= contractor.contractorinvoices.unpaid.count %> <br>
+	<%= link_to 'Make Payment', payment_form_path(contractor.id) %><br>
+<% end %>

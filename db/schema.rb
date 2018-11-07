@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_08_060001) do
+ActiveRecord::Schema.define(version: 2018_11_07_134905) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "name"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2018_10_08_060001) do
     t.integer "contractorpo_id"
     t.integer "contractorquote_id"
     t.integer "user_id"
+    t.boolean "paid", default: false
     t.index ["contractor_id"], name: "index_contractorinvoices_on_contractor_id"
     t.index ["contractorpo_id"], name: "index_contractorinvoices_on_contractorpo_id"
     t.index ["contractorquote_id"], name: "index_contractorinvoices_on_contractorquote_id"
@@ -185,6 +186,15 @@ ActiveRecord::Schema.define(version: 2018_10_08_060001) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.index ["user_id"], name: "index_milestones_on_user_id"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.integer "contractor_id"
+    t.integer "amount"
+    t.string "contractorinvoice_ids"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contractor_id"], name: "index_payments_on_contractor_id"
   end
 
   create_table "paymentvouchers", force: :cascade do |t|
