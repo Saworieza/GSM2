@@ -1,7 +1,7 @@
 <%= form_for Payment.new do |f|  %>
 	
 	<div class="field">
-    <%= f.hidden_field :contractor_id %>
+    <%= f.hidden_field :contractor_id, value: @contractor.id %>
   </div>
   <table class="table table-striped">
 	  <thead>
@@ -21,14 +21,23 @@
 	        <td><%= link_to invoice.number, invoice %></td>
 	        <td><%= number_with_delimiter((invoice.contractorpo.amount / invoice.stage.percentage).round(2), :delimiter => ',') %></td>
 
-	        <% total << (invoice.contractorpo.amount / invoice.stage.percentage).to_i %>
+	        <% total << (invoice.contractorpo.amount / invoice.stage.percentage) %>
 	      </tr>
-
 	  	<% end %>
+
+
 	  </div>
 	</table>
 
-	      <%= total.sum %>
+	<table class="table table-striped">
+		<tr>
+			<td>Total</td>
+			<td><%#= total.sum.round(2) %></td>
+			<td><%= f.text_field :amount, value: total.sum.round(2), class: 'disabled' %></td>
+		</tr>
+	</table>
+	
+	<%= f.submit %>
 
 
   

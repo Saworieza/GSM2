@@ -7,4 +7,8 @@ class PaymentsController < ApplicationController
   def payment_form 
   	@contractor = Contractor.find params[:id] 	
   end
+
+  def create
+  	redirect_to root_path
+  end
 end
