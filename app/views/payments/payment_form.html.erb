@@ -9,17 +9,19 @@
 	      <!-- <th scope="col">#/th> -->
 	      <th scope="col">Invoice Number</th>
 	      <th scope="col">Amount</th>
+	      <th scope="col">Paid</th>
 	      <th colspan="3"></th>
 	    </tr>
 	  </thead>
 	  <div class="field">
-	  	Invoices
+	  	<%= @contractor.name %>'s Invoices
 	  	<br>
 	  	<% total=[] %>
 	  	<% @contractor.contractorinvoices.each do |invoice| %>
 	  		<tr>
 	        <td><%= link_to invoice.number, invoice %></td>
 	        <td><%= number_with_delimiter((invoice.contractorpo.amount / invoice.stage.percentage).round(2), :delimiter => ',') %></td>
+	        <td><%= invoice.paid %></td>
 
 	        <% total << (invoice.contractorpo.amount / invoice.stage.percentage) %>
 	      </tr>
