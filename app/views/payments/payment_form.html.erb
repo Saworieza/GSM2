@@ -31,9 +31,9 @@
 
 	<table class="table table-striped">
 		<tr>
-			<td>Total</td>
+			<td>Total Invoice Amount</td>
 			<td><%#= total.sum.round(2) %></td>
-			<td><%= f.text_field :amount, value: total.sum.round(2), class: 'disabled' %></td>
+			<td><%= f.text_field :amount, value: number_with_delimiter(total.sum.round(2), :delimiter => ",", :separator => "."), disabled: true, class: "total-box" %></td>
 		</tr>
 	</table>
 	
