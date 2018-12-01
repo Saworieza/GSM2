@@ -172,12 +172,10 @@ ActiveRecord::Schema.define(version: 2018_12_01_054445) do
   end
 
   create_table "invoicings", force: :cascade do |t|
-    t.integer "paymentvoucher_id"
     t.integer "contractorinvoice_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["contractorinvoice_id"], name: "index_invoicings_on_contractorinvoice_id"
-    t.index ["paymentvoucher_id"], name: "index_invoicings_on_paymentvoucher_id"
   end
 
   create_table "milestones", force: :cascade do |t|
