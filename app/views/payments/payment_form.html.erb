@@ -1,47 +1,32 @@
 <%= form_for Payment.new do |f|  %>
 	
-	<div class="field">
-    <%= f.hidden_field :contractor_id, value: @contractor.id %>
-  </div>
+  <%= f.hidden_field :contractor_id, value: @contractor.id %>
+  
   <table class="table table
   -striped">
 	  <thead>
 	    <tr>
-	      <!-- <th scope="col">#/th> -->
 	      <th scope="col">Invoice Number</th>
 	      <th scope="col">Amount</th>
 	      <th scope="col">Paid</th>
-	      <!-- <th colspan="3"></th> -->
 	    </tr>
 	  </thead>
 	  <div class="field">
 	  	<%= @contractor.name %>'s Invoices
 	  	<br>
 	  	<% total=[] %>
-	  	<% @contractor.contractorinvoices.each do |invoice| %>
+	  	<% @contractor.contractorinvoices.unpaid.each do |invoice| %>
 	  		<tr>
 	        <td><%= link_to invoice.number, invoice %></td>
 	        <td><%= number_with_delimiter((invoice.contractorpo.amount / invoice.stage.percentage).round(2), :delimiter => ',') %></td>
-	        <td><%= invoice.paid %></td>
+	        <td><%= check_box_tag "payment[invoice_id][]", invoice.id %> Paid</td>
 
 	        <% total << (invoice.contractorpo.amount / invoice.stage.percentage) %>
 	      </tr>
 	  	<% end %>
 
-
 	  </div>
 	</table>
-
-
-
-
-<%#= hidden_field_tag "contractor_id[contractorinvoice_ids][]", value: @contractor.id %>
-<%# Contractorinvoice.all.each do |contractorinvoice| %>
-  <%#= check_box_tag "contractor_id[contractorinvoice_ids][]", contractorinvoice.id, @contractor.contractorinvoice_ids.include?(contractorinvoice.id), id: dom_id(contractorinvoice) %>
-  <%#= label_tag dom_id(contractorinvoice), contractorinvoice.paid %><br>
-<%# end %>
-
-
 
 
 	<table class="table table-striped">

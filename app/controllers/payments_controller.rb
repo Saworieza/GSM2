@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-  # before_action :set_payment, only: [:show, :edit, :update, :destroy]
+  before_action :set_payment, only: [:show, :edit, :update, :destroy]
 
   def index
   	# render plain: 'ok'
@@ -12,39 +12,36 @@ class PaymentsController < ApplicationController
     # @contractorinvoices = Contractorinvoice.find params[:id]
   end
 
-  # def show    
-  # end
+  def show    
+  end
 
   def create
-  	redirect_to root_path
-    # @payment = Payment.new
-    # respond_to do |format|
-    #   if @payment.save
-    #     params[:ids].each do |contractorinvoice_id|
-    #       contractorinvoice = contractorinvoice.find(contractorinvoice_ids)
-    #       contractorinvoice.payment_id = @payment.id
-    #       contractorinvoice.paid = true
-    #       contractorinvoice.save
-    #     end
-    #     redirect_to index_page, notice: 'Payment Was successfully created'
-    #     flash[:notice] = 'Payment was successfully created'
-    #   else
-    #     format.html{render :new}
-    #     flash[:alert] = 'Payment not created' + @payment.errors.full_messages.to_sentence
-    #   end
-    # end
+    begin
+      payment = Payment.new({ contractor_id: params[:payment][:contractor_id], contractorinvoice_id: params[:payment][:invoice_id] })
 
-    # @payment.contractor_id = params[:contractor_id]
-    # @payment.amount = params[:amount]
+      amount = []
+      YAML.load(payment.contractorinvoice_id.delete':').each do |id|
+        ci = Contractorinvoice.find id
+        ci.paid = true
+        ci.save
+        amount << (ci.contractorpo.amount / ci.stage.percentage)
+      end
 
-    # @payment.save
-    # flash[:notice] = 'Payment created'
+      payment.amount = (amount.sum)
+      if payment.save
+        redirect_to root_path, notice: 'Payment Was successfully created'
+      else
+        flash[:alert] = 'Payment not created' + @payment.errors.full_messages.to_sentence
+      end
+    rescue Exception => ex
+      ex.message
+    end
 
   end
 
   private
-  # def set_payment
-  #   @payment = Payment.find(params[:id])
-  # end
+  def set_payment
+    @payment = Payment.find(params[:id])
+  end
   
 end

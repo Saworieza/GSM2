@@ -191,7 +191,7 @@ ActiveRecord::Schema.define(version: 2018_12_01_054445) do
   create_table "payments", force: :cascade do |t|
     t.integer "contractor_id"
     t.integer "amount"
-    t.string "contractorinvoice_ids"
+    t.string "contractorinvoice_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["contractor_id"], name: "index_payments_on_contractor_id"
@@ -200,21 +200,6 @@ ActiveRecord::Schema.define(version: 2018_12_01_054445) do
   create_table "payments_invoices", force: :cascade do |t|
     t.integer "payment_id"
     t.integer "contractorinvoice_id"
-  end
-
-  create_table "paymentvouchers", force: :cascade do |t|
-    t.string "number"
-    t.date "date"
-    t.integer "amount"
-    t.string "payment_by"
-    t.string "vat_no"
-    t.string "pin_no"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "stage_id"
-    t.integer "user_id"
-    t.index ["stage_id"], name: "index_paymentvouchers_on_stage_id"
-    t.index ["user_id"], name: "index_paymentvouchers_on_user_id"
   end
 
   create_table "regions", force: :cascade do |t|
