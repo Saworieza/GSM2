@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_07_134905) do
+ActiveRecord::Schema.define(version: 2018_12_01_054445) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "name"
@@ -195,6 +195,11 @@ ActiveRecord::Schema.define(version: 2018_11_07_134905) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["contractor_id"], name: "index_payments_on_contractor_id"
+  end
+
+  create_table "payments_invoices", force: :cascade do |t|
+    t.integer "payment_id"
+    t.integer "contractorinvoice_id"
   end
 
   create_table "paymentvouchers", force: :cascade do |t|

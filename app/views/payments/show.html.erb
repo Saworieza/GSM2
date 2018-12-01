@@ -1,0 +1,11 @@
+Payment id<%= @payment.id %><br>
+Contractor <%= @payment.contractor.name %><br>
+Paid invoices <%= @payment.contractorinvoices %>
+<br>
+<%#= @payment.contractorinvoices.each do |invoice| %>
+	<%#= invoice.number %>
+	<%#= invoice.paid %>
+<%# end %>
+
+<%= link_to 'Edit', edit_payment_path(@payment) %> |
+<%= link_to 'Back', :back %>

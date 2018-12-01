@@ -10,7 +10,7 @@ class Contractorinvoice < ApplicationRecord
   belongs_to :user
 
   has_many :invoicings
-	has_many :paymentvouchers, through: :invoicings
+	has_and_belongs_to_many :payments
 
   validates :number, uniqueness: true
 	# validates_presence_of :description
