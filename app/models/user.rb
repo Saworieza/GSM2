@@ -15,7 +15,7 @@ class User < ApplicationRecord
   has_many :customerquotes
   has_many :invoices
   has_many :milestones
-  has_many :paymentvouchers
+  # has_many :paymentvouchers
   has_many :regions
   has_many :scopes
   has_many :sites

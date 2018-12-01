@@ -15,7 +15,7 @@ class Useraddition < ActiveRecord::Migration[5.2]
   	add_reference :contractorquotes, :user, foreign_key: true
   	add_reference :contractorpos, :user, foreign_key: true
   	add_reference :contractorinvoices, :user, foreign_key: true
-  	add_reference :paymentvouchers, :user, foreign_key: true
+  	# add_reference :paymentvouchers, :user, foreign_key: true
   	add_reference :stages, :user, foreign_key: true
   	add_reference :contracts, :user, foreign_key: true
   	# add_reference :invoicings, :user, foreign_key: true
