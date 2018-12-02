@@ -1,11 +1,43 @@
-Payment id<%= @payment.id %><br>
+Payment id <%= @payment.id %><br>
 Contractor <%= @payment.contractor.name %><br>
-Paid invoices <%= @payment.contractorinvoices %>
+Paid Invoices <%= @payment.contractorinvoice_id %>
+<!-- This one converst the buger to an array. Though it should be converted on save -->
+<!-- Paid invoices <%#= @payment.contractorinvoice_id.scan(/\d/).map(&:to_i) %> -->
+<br>
+
+<%= @payment.contractorinvoices %>
 <br>
 <%#= @payment.contractorinvoices.each do |invoice| %>
 	<%#= invoice.number %>
 	<%#= invoice.paid %>
 <%# end %>
 
-<%= link_to 'Edit', edit_payment_path(@payment) %> |
+
+<h2>Payments Made</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Contractor</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%# @payments.each do |payment| %>
+      <tr>
+        <td scope="row"><%= @payment.id %></td>
+        <td><%= link_to @payment.contractor.name %></td>
+        <td><%= @payment.amount %></td>
+        <td><%= @payment.created_at.strftime("%d %b, %Y")  %></td>
+        <td><%#= link_to 'Destroy', payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <%# end %>
+  </tbody>
+</table>
+
+
+<%#= link_to 'Edit', edit_payment_path(@payment) %> |
 <%= link_to 'Back', :back %>

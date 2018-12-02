@@ -2,14 +2,13 @@ class PaymentsController < ApplicationController
   before_action :set_payment, only: [:show, :edit, :update, :destroy]
 
   def index
-  	# render plain: 'ok'
+  	@payments = Payment.all
   	@contractor = Contractor.all
   end
 
 
   def payment_form 
   	@contractor = Contractor.find params[:id] 	
-    # @contractorinvoices = Contractorinvoice.find params[:id]
   end
 
   def show    
@@ -21,6 +20,7 @@ class PaymentsController < ApplicationController
 
       amount = []
       YAML.load(payment.contractorinvoice_id.delete':').each do |id|
+      # YAML.load(payment.contractorinvoice_id.scan(/\d/).map(&:to_i).delete':').each do |id|
         ci = Contractorinvoice.find id
         ci.paid = true
         ci.save
@@ -29,7 +29,7 @@ class PaymentsController < ApplicationController
 
       payment.amount = (amount.sum)
       if payment.save
-        redirect_to root_path, notice: 'Payment Was successfully created'
+        redirect_to root_path, notice: 'Payment Was successfully Made'
       else
         flash[:alert] = 'Payment not created' + @payment.errors.full_messages.to_sentence
       end

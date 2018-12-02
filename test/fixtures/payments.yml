@@ -3,9 +3,11 @@
 one:
   contractor: one
   amount: 1
-  contractorinvoice_id: MyString
+  # contractorinvoice_id: MyString
+  contractorinvoice_id: MyArray
 
 two:
   contractor: two
   amount: 1
-  contractorinvoice_id: MyString
+  # contractorinvoice_id: MyString
+  contractorinvoice_id: MyArray
