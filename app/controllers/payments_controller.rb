@@ -13,6 +13,7 @@ class PaymentsController < ApplicationController
   end
 
   def show    
+    @contractor = Contractor.all
   end
 
   def create

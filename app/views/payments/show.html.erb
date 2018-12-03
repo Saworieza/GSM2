@@ -41,3 +41,13 @@ Paid Invoices <%= @payment.contractorinvoice_id %>
 
 <%#= link_to 'Edit', edit_payment_path(@payment) %> |
 <%= link_to 'Back', :back %>
+
+<% @payment.contractor.contractorinvoices.paid.each do |invoice| %>
+      <tr>
+        <td><%= invoice.description %> <br>
+          This Invoice <b>INVOICE NO_<%= link_to invoice.number, invoice %> - <%= invoice.stage.percentage.round(0) %>% FA Payment</b></td>
+        <td><%= invoice.stage.percentage %> %</td>
+        <td><%= number_with_delimiter((invoice.contractorpo.amount / invoice.stage.percentage).round(2), :delimiter => ',') %></td>
+
+      </tr>
+      <% end %>

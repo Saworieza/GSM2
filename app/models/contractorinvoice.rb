@@ -20,4 +20,5 @@ class Contractorinvoice < ApplicationRecord
 	end
 
   scope :unpaid, -> { where(paid: false)}
+  scope :paid, -> { where(paid: true)}
 end

@@ -9,7 +9,7 @@
 	    	<th scope="col">Required For</th>
 	    	<th>Qty</th>
 	      <th scope="col">Amount</th>
-	      <th scope="col">Paid</th>
+	      <th scope="col">Pay</th>
 	    </tr>
 	  </thead>
 	  <div class="field">
@@ -17,52 +17,49 @@
 	  	<br>
 	  	<% total=[] %>
 	  	<% @contractor.contractorinvoices.unpaid.each do |invoice| %>
-	  		<tr>
-	        <td><%= invoice.description %> <br>
-	        	This Invoice <b>INVOICE NO_<%= link_to invoice.number, invoice %> - <%= invoice.stage.percentage.round(0) %>% </b></td>
-	  			<td><%= invoice.stage.percentage %> %</td>
-	        <td><%= number_with_delimiter((invoice.contractorpo.amount / invoice.stage.percentage).round(2), :delimiter => ',') %></td>
-	        <td><%= check_box_tag "payment[invoice_id][]", invoice.id %> Pay</td>
+  		<tr>
+        <td><%= invoice.description %> <br>
+        	This Invoice <b>INVOICE NO_<%= link_to invoice.number, invoice %> - <%= invoice.stage.percentage.round(0) %>% FA Payment</b></td>
+  			<td><%= invoice.stage.percentage %> %</td>
+        <td><%= number_with_delimiter((invoice.contractorpo.amount / invoice.stage.percentage).round(2), :delimiter => ',') %></td>
+        <td><%= check_box_tag "payment[invoice_id][]", invoice.id %> Pay</td>
 
-	        <% total << (invoice.contractorpo.amount / invoice.stage.percentage) %>
-	      </tr>
+        <% total << (invoice.contractorpo.amount / invoice.stage.percentage) %>
+      </tr>
 	  	<% end %>
 
-	  </div>
-	<!-- </table>
-
-
-	<table class="table table-striped"> -->
-		<tr>
-			<td>Subtotal</td>
-			<td><b><%= f.text_field :amount, value: number_with_delimiter(total.sum.round(2), :delimiter => ",", :separator => "."), disabled: true, class: "total-box" %></b></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td>WHT (05/03%)</td>
-			<td></td>
-			<td></td>
-			<td>Mark</td>
-		</tr>
-		<tr>
-			<td>VAT (16%)</td>
-			<td></td>
-			<td></td>
-			<td>Mark</td>
-		</tr>
-		<tr>
-			<td>WHT VAT (06%)</td>
-			<td></td>
-			<td></td>
-			<td>Mark</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td>TOTAL (KES)</td>
-			<td>Mark</td>
-		</tr>
+	  
+			<tr>
+				<td>Subtotal</td>
+				<td><b><%= f.text_field :amount, value: number_with_delimiter(total.sum.round(2), :delimiter => ",", :separator => "."), disabled: true, class: "total-box" %></b></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>WHT (05/03%)</td>
+				<td></td>
+				<td>Mark</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>VAT (16%)</td>
+				<td></td>
+				<td>Mark</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>WHT VAT (06%)</td>
+				<td></td>
+				<td>Mark</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td>TOTAL (KES)</td>
+				<td>Mark</td>
+			</tr>
+		</div>
 	</table>
 	
 	<%= f.submit %>
