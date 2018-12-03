@@ -13,7 +13,7 @@ class PaymentsController < ApplicationController
   end
 
   def show    
-    @contractor = Contractor.all
+    # @contractor = Contractor.all
   end
 
   def create
@@ -21,7 +21,7 @@ class PaymentsController < ApplicationController
       payment = Payment.new({ contractor_id: params[:payment][:contractor_id], contractorinvoice_id: params[:payment][:invoice_id] })
 
       amount = []
-      YAML.load(payment.contractorinvoice_id.delete':').each do |id|
+      YAML.load(payment.contractorinvoice_id.delete':').scan(/\d/).map(&:to_i).each do |id|
       # YAML.load(payment.contractorinvoice_id.scan(/\d/).map(&:to_i).delete':').each do |id|
         ci = Contractorinvoice.find id
         ci.paid = true
