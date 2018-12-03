@@ -4,7 +4,7 @@ class PaymentsController < ApplicationController
 
   def index
   	@payments = Payment.all
-  	@contractor = Contractor.all
+  	@contractors = Contractor.all
   end
 
 

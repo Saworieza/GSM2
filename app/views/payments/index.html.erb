@@ -11,12 +11,14 @@
 		  </thead>
 
 		  <tbody>
-				<% @contractor.each do |contractor| %>
-					<tr>
-						<td><%= contractor.name %></td>
-						<td><%= contractor.contractorinvoices.unpaid.count %></td>
-						<td><%= link_to 'Make Payment', payment_form_path(contractor.id) %></td>
-					</tr>
+				<% @contractors.each do |contractor| %>
+					<% unless contractor.contractorinvoices.unpaid.empty? %>
+						<tr>
+							<td><%= contractor.name %></td>
+							<td><%= contractor.contractorinvoices.unpaid.size %></td>
+							<td><%= link_to 'Make Payment', payment_form_path(contractor.id) %></td>
+						</tr>
+					<% end %>
 				<% end %>
 			</tbody>
 		</table>
