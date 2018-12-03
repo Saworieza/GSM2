@@ -38,6 +38,7 @@ group :development, :test do
 
   gem 'pry'
   gem 'pry-nav'
+  gem 'foreman'
 end
 
 group :development do
