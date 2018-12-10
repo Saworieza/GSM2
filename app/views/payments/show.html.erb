@@ -1,10 +1,20 @@
 Payment id <%= @payment.id %><br>
 Contractor <%= @payment.contractor.name %><br>
-Paid Invoices <%= @payment.contractorinvoice_id %>
+Paid Invoices <br><%#= @payment.contractorinvoice_id %>
 <!-- This one converst the buger to an array. Though it should be converted on save -->
 <!-- Paid invoices <%#= @payment.contractorinvoice_id.scan(/\d/).map(&:to_i) %> -->
 <br>
-
+<% YAML.load(@payment.contractorinvoice_id.delete':').each do |id| %>
+  <tr>
+    <% ci = Contractorinvoice.find(id) %>
+    <td><%= ci.description %><br/>
+      This Invoice <b>INVOICE NO_<%= link_to ci.number, ci %> - <%= ci.stage.percentage.round(0) %>% FA Payment</b></td>
+    </td>
+    <td><%= ci.stage.percentage %> %</td>
+    <td><%= number_with_delimiter((ci.contractorpo.amount / ci.stage.percentage).round(2), :delimiter => ',') %></td>
+  </tr>
+<% end %>
+<br>
 <%#= @payment.contractorinvoices %>
 <br>
 <%= @payment.contractorinvoices.each do |invoice| %>
@@ -43,13 +53,4 @@ Paid Invoices <%= @payment.contractorinvoice_id %>
 <%#= link_to 'Edit', edit_payment_path(@payment) %> |
 <%= link_to 'Back', :back %>
 
-<% YAML.load(@payment.contractorinvoice_id.delete':').each do |id| %>
-  <tr>
-    <% ci = Contractorinvoice.find(id) %>
-    <td><%= ci.description %><br/>
-      This Invoice <b>INVOICE NO_<%= link_to ci.number, ci %> - <%= ci.stage.percentage.round(0) %>% FA Payment</b></td>
-    </td>
-    <td><%= ci.stage.percentage %> %</td>
-    <td><%= number_with_delimiter((ci.contractorpo.amount / ci.stage.percentage).round(2), :delimiter => ',') %></td>
-  </tr>
-<% end %>
+
