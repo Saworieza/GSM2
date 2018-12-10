@@ -7,11 +7,12 @@ Paid Invoices <%= @payment.contractorinvoice_id %>
 
 <%#= @payment.contractorinvoices %>
 <br>
-<%#= @payment.contractorinvoices.each do |invoice| %>
-	<%#= invoice.number %>
-	<%#= invoice.paid %>
-<%# end %>
+<%= @payment.contractorinvoices.each do |invoice| %>
+	<%= invoice.number %>
+	<%= invoice.paid %>
+<% end %>
 
+<%# obj=array %>
 
 <h2>Payments Made</h2>
 <table class="table table-striped">

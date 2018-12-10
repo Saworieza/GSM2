@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_01_054445) do
+ActiveRecord::Schema.define(version: 2018_12_07_042745) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "name"
@@ -43,6 +43,15 @@ ActiveRecord::Schema.define(version: 2018_12_01_054445) do
     t.index ["milestone_id"], name: "index_contractorinvoices_on_milestone_id"
     t.index ["stage_id"], name: "index_contractorinvoices_on_stage_id"
     t.index ["user_id"], name: "index_contractorinvoices_on_user_id"
+  end
+
+  create_table "contractorinvoices_payments", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "payment_id"
+    t.integer "contractorinvoice_id"
+    t.index ["contractorinvoice_id"], name: "index_contractorinvoices_payments_on_contractorinvoice_id"
+    t.index ["payment_id"], name: "index_contractorinvoices_payments_on_payment_id"
   end
 
   create_table "contractorpos", force: :cascade do |t|
