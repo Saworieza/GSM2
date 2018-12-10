@@ -15,14 +15,6 @@ Paid Invoices <br><%#= @payment.contractorinvoice_id %>
   </tr>
 <% end %>
 <br>
-<%#= @payment.contractorinvoices %>
-<br>
-<%= @payment.contractorinvoices.each do |invoice| %>
-	<%= invoice.number %>
-	<%= invoice.paid %>
-<% end %>
-
-<%# obj=array %>
 
 <h2>Payments Made</h2>
 <table class="table table-striped">
@@ -37,7 +29,6 @@ Paid Invoices <br><%#= @payment.contractorinvoice_id %>
   </thead>
 
   <tbody>
-    <%# @payments.each do |payment| %>
       <tr>
         <td scope="row"><%= @payment.id %></td>
         <td><%= link_to @payment.contractor.name %></td>
@@ -45,12 +36,10 @@ Paid Invoices <br><%#= @payment.contractorinvoice_id %>
         <td><%= @payment.created_at.strftime("%d %b, %Y")  %></td>
         <td><%#= link_to 'Destroy', payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <%# end %>
   </tbody>
 </table>
 
 
-<%#= link_to 'Edit', edit_payment_path(@payment) %> |
 <%= link_to 'Back', :back %>
 
 
