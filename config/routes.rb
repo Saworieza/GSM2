@@ -22,10 +22,4 @@ Rails.application.routes.draw do
   resources :accounts
   root 'home#index'
 
-  #page not found
-  if Rails.env.production?
-    get '404', to: 'application#page_not_found'
-    get '422', to: 'application#server_error'
-    get '500', to:  'application#server_error'
-  end
 end
