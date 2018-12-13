@@ -3,4 +3,5 @@ class ApplicationController < ActionController::Base
 	  catch "*path", to: redirect_to('/'), via: :all
 	end
 
+	SSh shit
 end
