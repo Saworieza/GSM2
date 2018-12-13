@@ -1,4 +1,4 @@
-<%= form_with(model: milestone, local: true) do |form| %>
+<%= form_with(model: milestone, local: true) do |f| %>
   <% if milestone.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(milestone.errors.count, "error") %> prohibited this milestone from being saved:</h2>
@@ -12,23 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :phase %>
-    <%= form.text_field :phase %>
+    <%= f.label :phase %>
+    <%= f.text_field :phase %>
   </div>
 
   <h3>stages</h3>
   <div id="stages">
-    <%= form.fields_for :stages do |stage| %>
-      <%= render 'stage_fields', form: stage %>
+    <%= f.fields_for :stages do |stage| %>
+      <%= render 'stage_fields', f: stage %>
     <% end %>
     <div class="links">
-      <%= link_to_add_association 'add stage', form, :stages %>
+      <%= link_to_add_association 'add stage', f, :stages %>
     </div>
   </div>
 
 
 
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>

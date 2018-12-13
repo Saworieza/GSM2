@@ -1,8 +1,9 @@
+<%= f.hidden_field :user_id, value: current_user.id %>
 <div class="nested-fields">
   <div class="field">
-    <%= form.label :percentage %>
+    <%= f.label :percentage %>
     <br/>
-    <%= form.number_field :percentage %>
+    <%= f.number_field :percentage %>
   </div>
-  <%= link_to_remove_association "remove stage", form %>
+  <%= link_to_remove_association "remove stage", f %>
 </div>

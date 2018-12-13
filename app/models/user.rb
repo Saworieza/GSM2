@@ -18,7 +18,7 @@ class User < ApplicationRecord
   has_many :regions
   has_many :scopes
   has_many :sites
-  has_many :stages
+  has_many :stages, inverse_of: :user
   has_many :statuses
   has_many :towns
 end
