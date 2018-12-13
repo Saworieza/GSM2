@@ -23,6 +23,7 @@ class PaymentsController < ApplicationController
       amount = []
       # YAML.load(payment.contractorinvoice_id.delete':').split(",").map(&:to_i).each do |id|
       # select {|x|}
+      
       YAML.load(payment.contractorinvoice_id.delete':').each do |id|
         ci = Contractorinvoice.find id
         ci.paid = true
