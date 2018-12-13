@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '*unmatched_route', to: 'application#not_found'
   get 'payment_form/:id' => 'payments#payment_form', as: 'payment_form'
 
   devise_for :users
