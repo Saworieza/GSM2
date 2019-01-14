@@ -32,7 +32,7 @@ Paid Invoices <br><%#= @payment.contractorinvoice_id %>
       <tr>
         <td scope="row"><%= @payment.id %></td>
         <td><%= link_to @payment.contractor.name %></td>
-        <td><%= @payment.amount %></td>
+        <td><%= @payment.amount %></td> 
         <td><%= @payment.created_at.strftime("%d %b, %Y")  %></td>
         <td><%#= link_to 'Destroy', payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

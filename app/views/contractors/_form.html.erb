@@ -27,6 +27,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :pin %>
+    <%= form.text_field :pin %>
+  </div>
+
+  <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description %>
   </div>
@@ -35,14 +40,6 @@
     <%= form.label :status_id %>
     <%= form.collection_select :status_id, Status.all, :id, :state %>
   </div> 
-
-  <!-- <div class="field">
-    <%#= form.label :site_id %>
-    <%#= form.collection_select :site_id, Site.all, :id, :name %>
-    <%#= form.collection_select(:site_id, Site.all, :id, :name_with_initial, prompt: true) %>
-    <%#= form.collection_select(:site_ids, Site.all, :id, :name,{}, {:multiple => true}) %>
-    <%#= form.collection_select(:site_id, Site.all, :id, :name, {:prompt => "Please Select a site"}, {:multiple => true}) %>
-  </div>  -->
 
   <div class="actions">
     <%= form.submit %>

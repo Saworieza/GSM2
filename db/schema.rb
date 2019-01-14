@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 2018_12_07_042745) do
 
   create_table "contractorinvoices", force: :cascade do |t|
     t.text "invoice_to"
-    t.text "pin"
     t.string "unit"
     t.text "description"
     t.string "number"
@@ -90,6 +89,7 @@ ActiveRecord::Schema.define(version: 2018_12_07_042745) do
     t.string "name"
     t.string "email"
     t.integer "telephone"
+    t.string "pin"
     t.text "description"
     t.integer "status_id"
     t.datetime "created_at", null: false
@@ -196,6 +196,12 @@ ActiveRecord::Schema.define(version: 2018_12_07_042745) do
   end
 
   create_table "payments", force: :cascade do |t|
+    t.string "number"
+    t.date "date"
+    t.integer "tax"
+    t.string "paymentmode"
+    t.string "pvno"
+    t.string "pin"
     t.integer "contractor_id"
     t.integer "amount"
     t.string "contractorinvoice_id"

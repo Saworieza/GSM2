@@ -2,7 +2,6 @@ class CreateContractorinvoices < ActiveRecord::Migration[5.2]
   def change
     create_table :contractorinvoices do |t|
     	t.text :invoice_to
-      t.text :pin
       t.string :unit
       t.text :description
       t.string :number

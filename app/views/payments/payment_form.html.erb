@@ -1,6 +1,36 @@
 <%= form_for Payment.new do |f|  %>
 	
   <%= f.hidden_field :contractor_id, value: @contractor.id %>
+
+  <div class="field">
+    <%= f.label :date %>
+    <%= f.date_select :date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :number %>
+    <%= f.text_field :number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :paymentmode %>
+    <%= f.text_field :paymentmode %>
+  </div>
+
+  <div class="field">
+    <%= f.label :pvno %>
+    <%= f.text_field :pvno %>
+  </div>
+
+  <div class="field">
+    <%= f.label :pin %>
+    <%= f.text_field :pin %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tax %>
+    <%= f.number_field :tax %>
+  </div>
   
   <table class="table table-striped">
 	  <thead>
@@ -31,7 +61,7 @@
 	  
 			<tr>
 				<td>Subtotal</td>
-				<td><b><%= f.text_field :amount, value: number_with_delimiter(total.sum.round(2), :delimiter => ",", :separator => "."), disabled: true, class: "total-box" %></b></td>
+				<td><b><%= f.text_field :amount, value: number_with_delimiter(total.sum.round(2), :delimiter => ","), disabled: true, class: "total-box" %></b></td>
 				<td></td>
 				<td></td>
 			</tr>

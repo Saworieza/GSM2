@@ -19,11 +19,9 @@ class PaymentsController < ApplicationController
   def create
     begin
       payment = Payment.new({ contractor_id: params[:payment][:contractor_id], contractorinvoice_id: params[:payment][:invoice_id] })
-
-      amount = []
-      # YAML.load(payment.contractorinvoice_id.delete':').split(",").map(&:to_i).each do |id|
-      # select {|x|}
-      
+      # a.foo = current_user.foo
+      # a.b = params.fetch(:foo, :date, :number, :tax, :paymentmode, :pvno, :pin) 
+      amount = []      
       YAML.load(payment.contractorinvoice_id.delete':').each do |id|
         ci = Contractorinvoice.find id
         ci.paid = true
@@ -47,5 +45,9 @@ class PaymentsController < ApplicationController
   def set_payment
     @payment = Payment.find(params[:id])
   end
+
+  # def payment_params
+  #   params.require(:payment).permit(:date, :number, :tax, :paymentmode, :pvno, :pin,)
+  # end
   
 end

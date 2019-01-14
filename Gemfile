@@ -17,6 +17,8 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'font-awesome-rails'
 gem "cocoon"
+
+gem 'vuejs-rails'
 # gem 'impressionist'
 
 # Use ActiveStorage variant

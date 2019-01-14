@@ -13,8 +13,21 @@
 //= require rails-ujs
 //= require jquery
 //= require jquery-ui
+//= require vue
 //= require cocoon
 //= require activestorage
 //= require turbolinks
 //= require datatables
 //= require_tree .
+
+
+//testing out vue
+window.onload = function () {
+  var app = new Vue({
+      el: '#app',
+      data: {
+          message: 'Hello Vue!'
+      }
+     }
+  })
+}
