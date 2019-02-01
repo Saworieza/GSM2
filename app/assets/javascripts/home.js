@@ -4,7 +4,6 @@ window.onload = function () {
       el: '#app',
       data: {
           message: 'Hello Vue!'
-      }
-     }
+     	}
   })
 }
