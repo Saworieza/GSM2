@@ -287,4 +287,7 @@ Devise.setup do |config|
   # ActiveSupport.on_load(:devise_failure_app) do
   #   include Turbolinks::Controller
   # end
+  config.authentication_keys = [ :login ]
+  config.reset_password_keys = [ :username ]
+  config.confirmation_keys = [ :username ]
 end
